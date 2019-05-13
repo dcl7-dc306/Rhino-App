@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap.css" />
+    <Content Include="css\custom.css" />
     <Content Include="css\responsive.css" />
     <Content Include="css\ui.css" />
     <Content Include="fonts\fontawesome\css\fa-brands.css" />
@@ -164,6 +165,11 @@
     <Content Include="plugins\slickslider\slick.min.js" />
     <Content Include="Web.config" />
     <Content Include="index.aspx" />
+    <Content Include="orders.aspx">
+      <BrowseToURL>~/orders.aspx</BrowseToURL>
+    </Content>
+    <Content Include="single.aspx" />
+    <Content Include="account.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -183,6 +189,27 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="orders.aspx.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="orders.aspx.designer.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="single.aspx.cs">
+      <DependentUpon>single.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="single.aspx.designer.cs">
+      <DependentUpon>single.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="account.aspx.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="account.aspx.designer.cs">
+      <DependentUpon>account.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

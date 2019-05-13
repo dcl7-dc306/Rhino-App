@@ -1770,20 +1770,8 @@ article:after,
   .itemside .img-wrap {
     position: relative;
     border-radius: 0.25rem 0 0 0.25rem; }
-  .itemside img {
-    -o-object-fit: contain;
-       object-fit: contain; }
   .itemside p, .itemside .title {
     margin-bottom: 0.5rem; }
-  .itemside .img-bg {
-    -o-object-fit: contain;
-       object-fit: contain;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    max-height: 100px;
-    bottom: 0;
-    z-index: 0; }
   .itemside .card-body {
     position: relative;
     z-index: 3; }
@@ -1915,7 +1903,7 @@ ul.row, ul.row-sm {
     border-radius: 0.2rem 0.2rem 0 0;
     overflow: hidden;
     position: relative;
-    height: 220px;
+    /*height: 220px;*/
     text-align: center; }
     .card-product .img-wrap img {
       max-height: 100%;

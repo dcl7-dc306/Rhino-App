@@ -1,3 +1,84 @@
-﻿.section-content {
-    margin-top: 90px;
+﻿:root {
+    /* Colors Variables */
+    --color-primary: #203244;
+    --color-primary-light: #263C51;
+    --color-primary-dark: #1A2735;
+
+    --color-secondary: #FFAA15;
+    --color-secondary-light: #D58500;
+    --color-secondary-dark: #FFB63C;
+
+    --color-tertiary: #F83236;
+    --color-tertiary-light: #F9464A;
+    --color-tertiary-dark: #F70D13;
+
+    --color-white: #FCEEEA;
+    --color-black: #242424;
+}
+
+/* Utility classes */
+
+.u-margin-top-small { margin-top: 20px !important; }
+.u-margin-top-medium { margin-top: 40px !important; }
+.u-margin-top-big { margin-top: 80px !important; }
+.u-margin-top-huge { margin-top: 100px !important; }
+.u-margin-top-extra-huge { margin-top: 120px !important; }
+
+.u-margin-bottom-small { margin-bottom: 20px !important; }
+.u-margin-bottom-medium { margin-bottom: 40px !important; }
+.u-margin-bottom-big { margin-bottom: 80px !important; }
+
+.u-padding-top-small { padding-top: 20px !important; }
+.u-padding-top-medium { padding-top: 40px !important; }
+.u-padding-top-big { padding-top: 80px !important; }
+
+
+/* Index/Products page styles */
+
+.section-intro {
+    background-image: linear-gradient(to bottom right, 
+        rgba(38, 60, 81, .7), /*primary color light*/
+        rgba(32, 50, 68, .7)), /*primary color*/
+    url(../images/products/banner.jpeg);
+    background-size: cover;
+    background-position: 0 0, 0 -6.4rem;
+    background-repeat: no-repeat;
+}
+
+.card--animated {
+    transition: all .15s ease-in-out;
+    cursor: pointer;
+}
+
+.card--animated:hover {
+    transform: scale(1.03) translateY(-.3rem) !important;
+    box-shadow: 0 1rem 4rem rgba(0,0,0, .7);
+}
+
+/* Accounts page styles */
+
+.section-user {
+    padding: 6.5rem 0 6.5rem 0;
+}
+
+.user-form__forgot-password {
+    text-decoration: underline;
+}
+
+/* Icon & logo */
+.logo-medium {
+    max-height: 4rem !important;
+}
+
+.icon--medium {
+    font-size: 1.5rem;
+    transition: all .3s;
+}
+
+.icon--medium--cta {
+    color: var(--color-secondary-light);
+}
+
+.icon--medium--cta:hover {
+    color: var(--color-secondary-dark);
 }
