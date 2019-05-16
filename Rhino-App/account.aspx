@@ -28,7 +28,7 @@
                     </div>  
 
                     <%--<button type="button" class="btn btn-primary">Log in</button>--%>
-                    <asp:Button ID="buttonLogIn" CssClass="btn btn-primary" runat="server" Text="Log in" />
+                    <asp:Button ID="buttonLogIn" CssClass="btn btn-warning" runat="server" Text="Log in" />
                 </div>
 
                 <div class="col">
@@ -58,7 +58,7 @@
                     </div>
                         
                     <%--<button type="button" class="btn btn-primary">Sign Up</button>--%>
-                    <asp:Button ID="buttonSignUp" CssClass="btn btn-primary" runat="server" Text="Sign up" />
+                    <asp:Button ID="buttonSignUp" CssClass="btn btn-warning" runat="server" Text="Sign up" />
                 </div>
             </div>
         </div>
