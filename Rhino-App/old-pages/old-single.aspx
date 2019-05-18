@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="single.aspx.cs" Inherits="Rhino_App.single" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="old-single.aspx.cs" Inherits="Rhino_App.WebForm3" %>
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
 	<title>Single</title>
 </asp:Content>

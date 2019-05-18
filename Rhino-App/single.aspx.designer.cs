@@ -11,7 +11,7 @@ namespace Rhino_App
 {
 
 
-    public partial class WebForm3
+    public partial class single
     {
     }
 }

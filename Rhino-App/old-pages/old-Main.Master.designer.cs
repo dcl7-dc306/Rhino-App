@@ -10,7 +10,7 @@
 namespace Rhino_App {
     
     
-    public partial class Main {
+    public partial class Site1 {
         
         /// <summary>
         /// head control.

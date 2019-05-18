@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Rhino_App.index" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="old-index.aspx.cs" Inherits="Rhino_App.WebForm1" %>
+
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
 	<title>Home</title>
 </asp:Content>
@@ -302,4 +303,3 @@
 		</div><!-- container // -->
 	</section>
 </asp:Content>
-

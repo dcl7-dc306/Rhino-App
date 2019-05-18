@@ -11,7 +11,7 @@ namespace Rhino_App
 {
 
 
-    public partial class index
+    public partial class WebForm2
     {
     }
 }

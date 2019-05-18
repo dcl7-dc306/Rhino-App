@@ -11,7 +11,7 @@ namespace Rhino_App
 {
 
 
-    public partial class WebForm2
+    public partial class orders
     {
     }
 }

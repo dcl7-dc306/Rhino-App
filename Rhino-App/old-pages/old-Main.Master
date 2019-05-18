@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Rhino_App.Main" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="old-Main.Master.cs" Inherits="Rhino_App.Site1" %>
 
 <!DOCTYPE html>
 

@@ -10,7 +10,7 @@
 namespace Rhino_App {
     
     
-    public partial class account {
+    public partial class WebForm4 {
         
         /// <summary>
         /// emailLogin control.

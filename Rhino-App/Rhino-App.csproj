@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="account.aspx" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\custom.css" />
     <Content Include="css\responsive.css" />
@@ -139,9 +140,11 @@
     <Content Include="images\posts\4.jpg" />
     <Content Include="images\posts\5.jpg" />
     <Content Include="images\posts\6.jpg" />
+    <Content Include="index.aspx" />
     <Content Include="js\bootstrap.bundle.min.js" />
     <Content Include="js\jquery-2.0.0.min.js" />
     <Content Include="js\script.js" />
+    <Content Include="orders.aspx" />
     <Content Include="plugins\fancybox\fancybox.min.css" />
     <Content Include="plugins\fancybox\fancybox.min.js" />
     <Content Include="plugins\fancybox\index.html" />
@@ -163,25 +166,25 @@
     <Content Include="plugins\slickslider\slick.css" />
     <Content Include="plugins\slickslider\slick.js" />
     <Content Include="plugins\slickslider\slick.min.js" />
+    <Content Include="single.aspx" />
     <Content Include="Web.config" />
-    <Content Include="index.aspx" />
-    <Content Include="orders.aspx">
+    <Content Include="old-pages\old-index.aspx" />
+    <Content Include="old-pages\old-orders.aspx">
       <BrowseToURL>~/orders.aspx</BrowseToURL>
     </Content>
-    <Content Include="single.aspx" />
-    <Content Include="account.aspx" />
+    <Content Include="old-pages\old-single.aspx" />
+    <Content Include="old-pages\old-account.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Main.Master.cs">
-      <DependentUpon>Main.Master</DependentUpon>
+    <Compile Include="account.aspx.cs">
+      <DependentUpon>account.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main.Master.designer.cs">
-      <DependentUpon>Main.Master</DependentUpon>
+    <Compile Include="account.aspx.designer.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -190,6 +193,13 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
     <Compile Include="orders.aspx.cs">
       <DependentUpon>orders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -197,19 +207,48 @@
     <Compile Include="orders.aspx.designer.cs">
       <DependentUpon>orders.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="old-pages\old-Main.Master.cs">
+      <DependentUpon>old-Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="old-pages\old-Main.Master.designer.cs">
+      <DependentUpon>old-Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="old-pages\old-index.aspx.cs">
+      <DependentUpon>old-index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="old-pages\old-index.aspx.designer.cs">
+      <DependentUpon>old-index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="old-pages\old-orders.aspx.cs">
+      <DependentUpon>old-orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="old-pages\old-orders.aspx.designer.cs">
+      <DependentUpon>old-orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="old-pages\old-single.aspx.cs">
+      <DependentUpon>old-single.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="old-pages\old-single.aspx.designer.cs">
+      <DependentUpon>old-single.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="old-pages\old-account.aspx.cs">
+      <DependentUpon>old-account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="old-pages\old-account.aspx.designer.cs">
+      <DependentUpon>old-account.aspx</DependentUpon>
+    </Compile>
     <Compile Include="single.aspx.cs">
       <DependentUpon>single.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="single.aspx.designer.cs">
       <DependentUpon>single.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="account.aspx.cs">
-      <DependentUpon>account.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="account.aspx.designer.cs">
-      <DependentUpon>account.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +295,7 @@
     <Content Include="fonts\roboto\Roboto-Regular.ttf" />
     <Content Include="fonts\roboto\Roboto-Thin.ttf" />
     <Content Include="images\Thumbs.db" />
+    <Content Include="Main.Master" />
     <None Include="packages.config" />
     <Content Include="plugins\slickslider\fonts\slick.eot" />
     <Content Include="plugins\slickslider\fonts\slick.ttf" />
@@ -366,7 +406,7 @@
     <Content Include="sass\ui-assets\_base.scss" />
     <Content Include="sass\ui.scss" />
     <Content Include="sass\_variables-custom.scss" />
-    <Content Include="Main.Master" />
+    <Content Include="old-pages\old-Main.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
