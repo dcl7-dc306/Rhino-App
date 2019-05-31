@@ -3,6 +3,29 @@
 	<title>Home</title>
 </asp:Content>
 
+<asp:Content ID="navigation" ContentPlaceHolderID="navigation" runat="server">
+    <%-- Navigation here --%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar1">
+                       
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link page-scroll active" href="index.aspx">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link page-scroll" href="login.aspx"><i class="fas fa-user icon--medium <%--icon--medium--cta--%>"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link page-scroll" href="orders.aspx"><i class="fas fa-shopping-cart icon--medium"></i></a>
+        </li>
+    </ul>
+    </div>
+    <%-- Navigation here --%>
+</asp:Content>
+
+
 <asp:Content ID="content" ContentPlaceHolderID="content" runat="server">
 
 	<%--======================= BANNER SECTION ============================--%>
