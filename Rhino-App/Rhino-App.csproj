@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="login.aspx" />
     <Content Include="pg_account.aspx" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\custom.css" />
@@ -176,6 +177,13 @@
     <Content Include="old-pages\old-account.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pg_account.aspx.cs">
       <DependentUpon>pg_account.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

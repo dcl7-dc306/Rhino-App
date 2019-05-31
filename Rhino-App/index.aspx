@@ -3,8 +3,11 @@
 	<title>Home</title>
 </asp:Content>
 
+ <%-- Call navigation classes here --%>
+<%--<asp:Content ID="navClass" ContentPlaceHolderID="navClass" runat="server">navbar navbar-landing navbar-expand-lg navbar-dark bg-dark</asp:Content>--%>
+
 <asp:Content ID="navigation" ContentPlaceHolderID="navigation" runat="server">
-    <%-- Navigation here --%>
+    <%-- Navigation list here --%>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,14 +18,16 @@
             <a class="nav-link page-scroll active" href="index.aspx">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link page-scroll" href="login.aspx"><i class="fas fa-user icon--medium <%--icon--medium--cta--%>"></i></a>
+            <a class="btn btn-warning" href="login.aspx">
+                <i class="fas fa-user icon--small <%--icon--medium--cta--%>"></i> Login 
+            </a>
         </li>
         <li class="nav-item">
             <a class="nav-link page-scroll" href="orders.aspx"><i class="fas fa-shopping-cart icon--medium"></i></a>
         </li>
     </ul>
     </div>
-    <%-- Navigation here --%>
+    <%--// Navigation list here --%>
 </asp:Content>
 
 
@@ -30,7 +35,7 @@
 
 	<%--======================= BANNER SECTION ============================--%>
 
-	<section id="intro" class="section-intro bg-secondary pt-5 u-margin-top-small">
+	<section id="intro" class="section-intro bg-secondary pt-5">
 		<div class="container">
 			<div class="row d-flex" style="min-height:600px;">
 				<div class="col-sm-6 d-flex align-items-center">

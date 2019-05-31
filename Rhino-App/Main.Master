@@ -53,11 +53,14 @@
     
 
     <body class="relative" data-spy="scroll" data-target=".navbar-landing">
+        <div id="navigation-classes"></div>
         
         <header class="section-header"><!-- section-header.// -->
-            <nav class="navbar navbar-landing navbar-expand-lg navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                
+                
                 <div class="container"> <!-- container //  -->
-                    <a class="navbar-brand mr-auto" href="#"> <img class="logo logo-medium" src="images/products/Rhino.png">RHINO</a>
+                    <a class="navbar-brand mr-auto" href="index.aspx"> <img class="logo logo-medium" src="images/products/Rhino.png">RHINO</a>
                                         
                     <asp:ContentPlaceHolder ID="navigation" runat="server">
                     </asp:ContentPlaceHolder>
@@ -65,9 +68,11 @@
                 </div> <!-- container //  -->
             </nav>
         </header> <!-- section-header.// -->
+        
+  
         <form runat="server">
-        <asp:ContentPlaceHolder ID="content" runat="server">
-        </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="content" runat="server">
+            </asp:ContentPlaceHolder>
         </form>
         <!-- ========================= SECTION INTRO ========================= -->
         <%--<section id="intro" class="section-intro bg-secondary pt-5">
