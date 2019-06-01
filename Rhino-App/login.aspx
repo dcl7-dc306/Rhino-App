@@ -28,6 +28,11 @@
         <li class="nav-item">
             <a class="nav-link page-scroll active" href="index.aspx">Back to Home</a>
         </li>
+        <li class="nav-item">
+            <a class="btn btn-warning" href="register.aspx">
+                <i class="fas fa- icon--small <%--icon--medium--cta--%>"></i> Create an Account 
+            </a>
+        </li>
     </ul>
     </div>
     <%-- Navigation here --%>
@@ -45,17 +50,19 @@
             </div>
 
             <div class="form-group">
-                <%--<input type="password" class="form-control" id="password-login" name="password" placeholder="Enter Password"/>--%>
                  <asp:Label ID="lblPass" runat="server" Text="Password" AssociatedControlID="txtPass"></asp:Label>
                 <asp:TextBox ID="txtPass" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
             </div>
-
             <div class="form-group">
                 <a class="user-form__forgot-password" href="#">I forgot my password</a>
-            </div>  
+            </div>
+            <div class="form-group">
+                <asp:Button ID="btnLogin" CssClass="btn btn-block btn-warning" runat="server" Text="Login" OnClick="btnLogin_Click" />
+            </div>
 
-            <%--<button type="button" class="btn btn-primary">Log in</button>--%>
-            <asp:Button ID="btnLogin" CssClass="btn btn-block btn-warning" runat="server" Text="Login" OnClick="btnLogin_Click" />
+            <div class="form-group">
+                Don't Have an account?&nbsp;<a class="user-form__forgot-password" href="register.aspx">Create an Account</a>
+            </div>
         </div>
     </div>
     </div>
