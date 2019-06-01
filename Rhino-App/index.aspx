@@ -18,12 +18,17 @@
             <a class="nav-link page-scroll active" href="index.aspx">Home</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link page-scroll" href="register.aspx">
+                <i class="fas fa- icon--small <%--icon--medium--cta--%>"></i> Create an Account 
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="btn btn-warning" href="login.aspx">
                 <i class="fas fa-user icon--small <%--icon--medium--cta--%>"></i> Login 
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link page-scroll" href="orders.aspx"><i class="fas fa-shopping-cart icon--medium"></i></a>
+            <a class="nav-link page-scroll" href="orders.aspx"><i class="fas fa-shopping-cart icon--small"></i> Check Cart</a>
         </li>
     </ul>
     </div>

@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\jquery-ui.css" />
     <Content Include="images\favicon\android-icon-144x144.png" />
     <Content Include="images\favicon\android-icon-192x192.png" />
     <Content Include="images\favicon\android-icon-36x36.png" />
@@ -93,6 +94,7 @@
     <Content Include="images\favicon\ms-icon-150x150.png" />
     <Content Include="images\favicon\ms-icon-310x310.png" />
     <Content Include="images\favicon\ms-icon-70x70.png" />
+    <Content Include="js\jquery-ui.js" />
     <Content Include="login.aspx" />
     <Content Include="pg_account.aspx" />
     <Content Include="css\bootstrap.css" />
@@ -194,6 +196,7 @@
     <Content Include="plugins\slickslider\slick.js" />
     <Content Include="plugins\slickslider\slick.min.js" />
     <Content Include="pg_single.aspx" />
+    <Content Include="register.aspx" />
     <Content Include="Web.config" />
     <Content Include="old-pages\old-index.aspx" />
     <Content Include="old-pages\old-orders.aspx">
@@ -283,6 +286,13 @@
     </Compile>
     <Compile Include="pg_single.aspx.designer.cs">
       <DependentUpon>pg_single.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
