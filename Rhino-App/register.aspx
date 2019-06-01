@@ -70,7 +70,10 @@
             <div class="form-group form-row">
                 <div class="col">
                     <asp:Label ID="lblGender" runat="server" Text="Gender" AssociatedControlID="drpGender"></asp:Label>
-                    <asp:DropDownList ID="drpGender" CssClass="form-control" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="drpGender" CssClass="form-control" runat="server">
+                        <asp:ListItem Selected="True" Value="Male"> Male </asp:ListItem>
+                        <asp:ListItem Value="Female"> Female </asp:ListItem>
+                    </asp:DropDownList>
                 </div>
                 <div class="col">
                     <asp:Label ID="lblBirth" runat="server" Text="Birth of Date" AssociatedControlID="calBirth"></asp:Label>
@@ -113,12 +116,6 @@
             <div class="form-group">
                 <asp:Button ID="btnRegister" CssClass="ml-auto btn btn-block btn-warning" runat="server" Text="Register" OnClick="btnRegister_Click" />
             </div>
-
-           
-            
-
-           
-
         </div>
     </div>
     </div>

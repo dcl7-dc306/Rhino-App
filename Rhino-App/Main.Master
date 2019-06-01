@@ -82,7 +82,7 @@
         </header> <!-- section-header.// -->
         
   
-        <form runat="server" style="margin: 0 !important;">
+        <form runat="server" class="needs-validation" style="margin: 0 !important;">
             <asp:ContentPlaceHolder ID="content" runat="server">
             </asp:ContentPlaceHolder>
         </form>
