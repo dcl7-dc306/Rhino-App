@@ -46,7 +46,12 @@ namespace Rhino_App
             conn.Open();
 
             string existuser = Convert.ToString(checkercmd.ExecuteScalar());
-            if ( txtPass.Text != txtConfirmPass.Text) // Validation for Password and Confirm Password
+
+            if (txtFirst.Text == "" || txtEmail.Text == "" || txtLast.Text == "" || txtUser.Text == "" || calBirth.Text == "")
+            {
+                Response.Write("<script>alert('Failed: First Name, Last Name, Email, Username - cannot be blank');</script>");
+            }
+            else if ( txtPass.Text != txtConfirmPass.Text) // Validation for Password and Confirm Password
             {
                 Response.Write("<script>alert('Failed: Password and Confirm Password must match');</script>");
             }
@@ -62,7 +67,7 @@ namespace Rhino_App
                             Response.Write("<script>alert('Success: You have successfully registered an account');</script>");
 
                             // TODO: Send mail
-                            // SendEmail(txtEmail.Text, txtFirst.Text);
+                            SendEmail(txtEmail.Text, txtFirst.Text);
 
                             // Empty Fields
                             txtFirst.Text = "";
@@ -105,42 +110,32 @@ namespace Rhino_App
                 string passwordFrom = "12345rhino";
 
                 // Setup SMTP Configuration
-                SmtpClient smtpClient = new SmtpClient("localhost", 25); // "smtp.gmail.com", 587
-                smtpClient.Credentials = new System.Net.NetworkCredential(emailFrom, passwordFrom);
-                smtpClient.UseDefaultCredentials = true;
-                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587); // "smtp.gmail.com", 587
                 smtpClient.EnableSsl = true;
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential(emailFrom, passwordFrom);
 
                 // create mail object
                 MailMessage mail = new MailMessage();
 
                 // Setting From , To, CC
-                mail.From = new MailAddress(emailFrom, appFrom);
-                mail.To.Add(new MailAddress(emailTo));
+                mail.To.Add(emailTo);
+                mail.From = new MailAddress(emailFrom);
 
                 // Subject, Body, Priority
                 mail.Subject = "Rhino Store - You have successfully registered!";
-                mail.Body = "Hello " + userTo + ",<br/><br/>Thank you for successully registering to our webstore!";
+                mail.Body = "Hello " + userTo + ", \nThank you for successully registering to our webstore!";
                 mail.Priority = MailPriority.Normal;
 
                 // Send the mail instance
                 smtpClient.Send(mail);
-
-            }
-            catch (SmtpFailedRecipientsException sfrEx)
-            { 
-                Response.Write("<script>alert('" + sfrEx.ToString() + "');</script>");
-            }
-            catch (SmtpException sEx)
-            {
-               // When SMTP Client cannot complete Send operation.
-                Response.Write("<script>alert('" + sEx.ToString() + "');</script>");
             }
             catch (Exception ex)
             {
-                // Any exception that may occur during the send process.
-                Response.Write("<script>alert('" + ex.ToString() + "');</script>");
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
+            
            
         }
     }

@@ -94,7 +94,6 @@
             <div class="form-group form-row">
                 <div class="col-6">
                 <div class="form-group">
-                    <%--<input type="password" class="form-control" id="password-login" name="password" placeholder="Enter Password"/>--%>
                      <asp:Label ID="lblPass" runat="server" Text="Password" AssociatedControlID="txtPass"></asp:Label>
                     <asp:TextBox ID="txtPass" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
                 </div>
@@ -103,7 +102,6 @@
                 </div>
                 <div class="col-6">
                 <div class="form-group">
-                    <%--<input type="password" class="form-control" id="password-login" name="password" placeholder="Enter Password"/>--%>
                     <asp:Label ID="lblConfirmPass" runat="server" Text="Confirm Password" AssociatedControlID="txtConfirmPass"></asp:Label>
                     <asp:TextBox ID="txtConfirmPass" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
                 </div>
