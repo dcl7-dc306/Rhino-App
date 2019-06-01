@@ -105,7 +105,7 @@ namespace Rhino_App
         {
             try
             {
-                string appFrom = "Rhino Store";
+                string appFrom = "Rhino Online Store";
                 string emailFrom = "rhinoapp911@gmail.com";
                 string passwordFrom = "12345rhino";
 
@@ -121,7 +121,7 @@ namespace Rhino_App
 
                 // Setting From , To, CC
                 mail.To.Add(emailTo);
-                mail.From = new MailAddress(emailFrom);
+                mail.From = new MailAddress(emailFrom, appFrom);
 
                 // Subject, Body, Priority
                 mail.Subject = "Rhino Store - You have successfully registered!";
