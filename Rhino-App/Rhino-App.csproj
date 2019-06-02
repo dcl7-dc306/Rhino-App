@@ -197,6 +197,7 @@
     <Content Include="plugins\slickslider\slick.min.js" />
     <Content Include="pg_single.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="email-templates\successRegister.html" />
     <Content Include="Web.config" />
     <Content Include="old-pages\old-index.aspx" />
     <Content Include="old-pages\old-orders.aspx">

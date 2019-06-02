@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO; // Email Template
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -116,7 +117,7 @@ namespace Rhino_App
                 smtpClient.UseDefaultCredentials = false;
                 smtpClient.Credentials = new NetworkCredential(emailFrom, passwordFrom);
 
-                // create mail object
+                // Create mail object
                 MailMessage mail = new MailMessage();
 
                 // Setting From , To, CC
@@ -125,7 +126,8 @@ namespace Rhino_App
 
                 // Subject, Body, Priority
                 mail.Subject = "Rhino Store - You have successfully registered!";
-                mail.Body = "Hello " + userTo + ", \nThank you for successully registering to our webstore!";
+                mail.IsBodyHtml = true;
+                mail.Body = CreateEmailContent();
                 mail.Priority = MailPriority.Normal;
 
                 // Send the mail instance
@@ -137,6 +139,19 @@ namespace Rhino_App
             }
             
            
+        }
+
+        private string CreateEmailContent()
+        {
+            string body = string.Empty;
+
+            StreamReader reader = new StreamReader(Server.MapPath("~/email-templates/successRegister.html")); // find the html file
+
+            body = reader.ReadToEnd(); // scans the html file
+
+            body = body.Replace("{fname}", txtFirst.Text); // Replace Parameter "{fname}" string in HTML
+
+            return body; // return whole content
         }
     }
 }
