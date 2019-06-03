@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="add-product.aspx" />
     <Content Include="css\jquery-ui.css" />
     <Content Include="images\favicon\android-icon-144x144.png" />
     <Content Include="images\favicon\android-icon-192x192.png" />
@@ -198,6 +199,7 @@
     <Content Include="pg_single.aspx" />
     <Content Include="register.aspx" />
     <Content Include="email-templates\successRegister.html" />
+    <Content Include="shop-products.aspx" />
     <Content Include="Web.config" />
     <Content Include="old-pages\old-index.aspx" />
     <Content Include="old-pages\old-orders.aspx">
@@ -207,6 +209,13 @@
     <Content Include="old-pages\old-account.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="add-product.aspx.cs">
+      <DependentUpon>add-product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="add-product.aspx.designer.cs">
+      <DependentUpon>add-product.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -294,6 +303,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shop-products.aspx.cs">
+      <DependentUpon>shop-products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shop-products.aspx.designer.cs">
+      <DependentUpon>shop-products.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -462,6 +478,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="images\uploaded-products\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
