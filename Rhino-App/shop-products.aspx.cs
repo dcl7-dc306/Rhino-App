@@ -25,8 +25,8 @@ namespace Rhino_App
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
-            DataList1.DataSource = dt;
-            DataList1.DataBind();
+            Repeater1.DataSource = dt;
+            Repeater1.DataBind();
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)

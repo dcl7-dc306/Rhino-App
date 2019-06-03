@@ -30,8 +30,8 @@
         <div class="u-margin-bottom-medium">
 				<h1>Products Catalogue</h1>
 		</div>
-        <div class="row"> 
-            <asp:DataList ID="DataList1" runat="server">
+        <div class="row">
+            <asp:Repeater ID="Repeater1" runat="server">
                 <ItemTemplate>
                 <div class="col-md-3 col-sm-6">
 			        <figure class="card card-product card--animated">
@@ -48,7 +48,7 @@
 			        </figure><!-- card // -->
 		        </div><!-- col // -->
                 </ItemTemplate>
-            </asp:DataList>
+            </asp:Repeater>
         </div>
     </div>
     </section>
