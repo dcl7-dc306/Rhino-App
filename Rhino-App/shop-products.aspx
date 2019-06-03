@@ -35,7 +35,7 @@
 	<section class="section-content bg padding-y-sm u-padding-top-big" >
     <div class="container">
         <div class="u-margin-bottom-medium">
-				<h1>Products Catalogue</h1>
+				<h1>Product Catalogue</h1>
 		</div>
         <div class="row">
             <asp:Repeater ID="Repeater1" runat="server">
