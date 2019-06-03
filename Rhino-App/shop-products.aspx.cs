@@ -20,13 +20,21 @@ namespace Rhino_App
         {
             conn = new SqlConnection(connStr);
             conn.Open();
-            cmd = new SqlCommand("SELECT * FROM tbl_products", conn); // TODO: change table
+            cmd = new SqlCommand("SELECT * FROM tbl_products", conn);
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
-            Repeater1.DataSource = dt;
-            Repeater1.DataBind();
+            if (dt.Rows.Count > 0)
+            {
+                Repeater1.DataSource = dt;
+                Repeater1.DataBind();
+            }
+            else
+            {
+                Response.Write("<script>alert('Product Catalogue: No Products to Show');</script>");
+            }
+ 
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
