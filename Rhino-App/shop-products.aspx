@@ -11,7 +11,7 @@
                        
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link page-scroll active" href="index.aspx">Products</a>
+            <a class="nav-link page-scroll active" href="shop-products.aspx">Products</a>
         </li>
         <li class="nav-item">
             <asp:Button runat="server" ID="btnLogout" CssClass="btn btn-warning" Text="Logout" OnClick="btnLogout_Click" />
