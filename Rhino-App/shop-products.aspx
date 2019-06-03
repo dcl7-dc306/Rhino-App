@@ -40,20 +40,22 @@
         <div class="row">
             <asp:Repeater ID="Repeater1" runat="server">
                 <ItemTemplate>
+                <a href='shop-product-item.aspx?id=<%#Eval("product_id") %>'>
                 <div class="col-md-3 col-sm-6">
 			        <figure class="card card-product card--animated">
 				        <div class="img-wrap">
 					        <img src='<%#Eval("image") %>'>
 				        </div>
 				        <figcaption class="info-wrap">
-					        <a href='<%#Eval("product_id") %>' class="title"><%#Eval("name") %></a>
+					        <a href='shop-product-item.aspx?id=<%#Eval("product_id") %>' class="title"><%#Eval("name") %></a>
 					        <div class="price-wrap">
-						        <span class="price-new"><%#Eval("price") %></span>
+						        <span class="price-new">NZ$ <%#Eval("price") %></span>
 						        <%--<del class="price-old">$1980</del>--%>
 					        </div><!-- price-wrap.// -->
 				        </figcaption>
 			        </figure><!-- card // -->
 		        </div><!-- col // -->
+                </a>
                 </ItemTemplate>
             </asp:Repeater>
         </div>
