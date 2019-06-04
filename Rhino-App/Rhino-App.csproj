@@ -97,6 +97,7 @@
     <Content Include="images\favicon\ms-icon-70x70.png" />
     <Content Include="js\jquery-ui.js" />
     <Content Include="login.aspx" />
+    <Content Include="manage-products.aspx" />
     <Content Include="pg_account.aspx" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\custom.css" />
@@ -201,6 +202,7 @@
     <Content Include="email-templates\successRegister.html" />
     <Content Include="shop-product-item.aspx" />
     <Content Include="shop-products.aspx" />
+    <Content Include="update-product.aspx" />
     <Content Include="Web.config" />
     <Content Include="old-pages\old-index.aspx" />
     <Content Include="old-pages\old-orders.aspx">
@@ -223,6 +225,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage-products.aspx.cs">
+      <DependentUpon>manage-products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage-products.aspx.designer.cs">
+      <DependentUpon>manage-products.aspx</DependentUpon>
     </Compile>
     <Compile Include="pg_account.aspx.cs">
       <DependentUpon>pg_account.aspx</DependentUpon>
@@ -318,6 +327,13 @@
     </Compile>
     <Compile Include="shop-products.aspx.designer.cs">
       <DependentUpon>shop-products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="update-product.aspx.cs">
+      <DependentUpon>update-product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="update-product.aspx.designer.cs">
+      <DependentUpon>update-product.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

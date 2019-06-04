@@ -1,14 +1,45 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="add-product.aspx.cs" Inherits="Rhino_App.add_product" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+    .rhino-forms{
+        padding-top: 30px;
+    }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="navigation" runat="server">
+    <%-- Navigation list here --%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar1">
+                       
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link page-scroll active" href="shop-products.aspx">Product Management</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link page-scroll" href="shop-products.aspx">Transaction History</a>
+        </li>
+        <li class="nav-item">
+            <% if (Session["user"] != null){%>
+                <asp:Button runat="server" ID="btnLogout" CssClass="btn btn-warning" Text="Logout" />
+            <%} %>
+            <% else{ %>
+                <a class="btn btn-warning" href="login.aspx">
+                    <i class="fas fa-user icon--small <%--icon--medium--cta--%>"></i> Login 
+                </a>
+            <%} %>
+        </li>
+    </ul>
+    </div>
+    <%--// Navigation list here --%>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
-    <div id="register">
+    <div class="rhino-forms">
     <div class="container"> 
     <div class="row justify-content-center">
-        <div class="jumbotron col-6">
 
+        <div class="jumbotron col-6">
             <h1 class="u-margin-bottom-small">Add Product</h1>
             
             <div class="form-group">
@@ -17,7 +48,7 @@
             </div>
             <div class="form-group">
                 <asp:Label ID="lblProdDesc" runat="server" Text="Description" AssociatedControlID="txtProdDesc"></asp:Label>
-                <asp:TextBox ID="txtProdDesc" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtProdDesc" CssClass="form-control" runat="server" TextMode="MultiLine"></asp:TextBox>
             </div>
             <div class="form-group">
                 <asp:Label ID="lblProdPrice" runat="server" Text="Price" AssociatedControlID="txtPrice"></asp:Label>
@@ -31,6 +62,10 @@
 
             <div class="form-group">
                 <asp:Button ID="btnAddProduct" CssClass="ml-auto btn btn-block btn-warning" runat="server" Text="Add Product" OnClick="btnAddProduct_Click"  />
+            </div>
+            <div class="form-group">
+                <br>
+                <a href="manage-products.aspx"><i class="fa fa-arrow-left"></i> Back to Product Management</a>
             </div>
         </div>
     </div>

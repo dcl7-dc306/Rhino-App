@@ -28,7 +28,7 @@ namespace Rhino_App
             if (flProdImage.HasFile)
             {
                 string ext = Path.GetExtension(flProdImage.FileName);
-                if(ext == ".jpg" || ext == ".png")
+                if(ext == ".jpg" || ext == ".png" || ext == ".jpeg")
                 {
                     flProdImage.SaveAs(path + flProdImage.FileName);
                     string imgPath = "images/uploaded-products/" + flProdImage.FileName;
@@ -48,7 +48,8 @@ namespace Rhino_App
                         conn.Open();
                         cmd.ExecuteNonQuery();
                         conn.Close();
-                        Response.Write("<script>alert('Success: You have successfully added a product')</script>");
+                        AlertAndRedirect("Success: You have successfully added a product");
+                        
                     }
 
                 }
@@ -62,6 +63,13 @@ namespace Rhino_App
             {
                 lblStatusImage.Text = "Please select an Image file";
             }
+        }
+
+        public void AlertAndRedirect(string msg)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect",
+            "alert('" + msg + "'); window.location='" +
+            Request.ApplicationPath + "manage-products.aspx';", true);
         }
     }
 }
