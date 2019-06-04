@@ -15,10 +15,10 @@
                        
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link page-scroll active" href="shop-products.aspx">Product Management</a>
+            <a class="nav-link page-scroll active" href="manage-products.aspx">Product Management</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link page-scroll" href="shop-products.aspx">Transaction History</a>
+            <a class="nav-link page-scroll" href="trans-history.aspx">Transaction History</a>
         </li>
         <li class="nav-item">
             <% if (Session["user"] != null){%>

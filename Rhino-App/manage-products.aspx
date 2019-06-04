@@ -40,7 +40,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="navigation" runat="server">
-     <%-- Navigation list here --%>
+    <%-- Navigation list here --%>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -48,10 +48,10 @@
                        
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link page-scroll active" href="shop-products.aspx">Product Management</a>
+            <a class="nav-link page-scroll active" href="manage-products.aspx">Product Management</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link page-scroll" href="shop-products.aspx">Transaction History</a>
+            <a class="nav-link page-scroll" href="trans-history.aspx">Transaction History</a>
         </li>
         <li class="nav-item">
             <% if (Session["user"] != null){%>
