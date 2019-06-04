@@ -43,5 +43,31 @@ namespace Rhino_App
             Session.Clear(); // Remove all session
             Response.Redirect("login.aspx"); // Redirect to login page
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            conn = new SqlConnection(connStr);
+            conn.Open();
+            // search anything by product name
+            string qry = $"SELECT * FROM tbl_products WHERE name LIKE '%{txtSearch.Text}%' OR product_id LIKE '%{txtSearch.Text}%' OR price LIKE '%{txtSearch.Text}%' COLLATE SQL_Latin1_General_CP1_CI_AS";
+            SqlDataAdapter da = new SqlDataAdapter(qry, conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                Repeater1.DataSource = dt;
+                Repeater1.DataBind();
+            }
+            else
+            {
+                Response.Write("<script>alert('Search Product: No Products to Show');</script>");
+            }
+            conn.Close();
+        }
+
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            // Add to cart function
+        }
     }
 }

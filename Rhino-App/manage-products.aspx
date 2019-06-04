@@ -24,7 +24,8 @@
             transition: all 0.2s ease-in-out;
             position: absolute;
             top: 34%;
-            left: 29%;
+            left: 50px;
+            right: 50px;
             opacity: 0;
         }
 
@@ -100,7 +101,7 @@
 					        <img src='<%#Eval("image") %>'>
 				        </div>
 				        <figcaption class="info-wrap">
-					        <a href='shop-product-item.aspx?id=<%#Eval("product_id") %>' class="title"><%#Eval("name") %></a>
+					        <a href='update-product-item.aspx?id=<%#Eval("product_id") %>' class="title"><%#Eval("name") %></a>
 					        <div class="price-wrap">
 						        <span class="price-new">NZ$ <%#Eval("price") %></span>
 						        <%--<del class="price-old">$1980</del>--%>

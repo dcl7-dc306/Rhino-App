@@ -1,5 +1,44 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="shop-products.aspx.cs" Inherits="Rhino_App.shop_products" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .rhino-card {
+            overflow:hidden;
+        }
+
+        .rhino-card-add-button {
+            -webkit-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -ms-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            position: absolute;
+            right: -117px;
+            bottom: 20px;
+        }
+
+        .rhino-card-view-button{
+            -webkit-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -ms-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            position: absolute;
+            top: 34%;
+            left: 50px;
+            right: 50px;
+            opacity: 0;
+        }
+
+        .rhino-card:hover .rhino-card-add-button{
+            right: 15px;
+        }
+        
+        .rhino-card:hover .rhino-card-view-button{
+            opacity: 1;
+        }
+        
+
+    </style>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="navigation" runat="server">
@@ -35,14 +74,24 @@
 	<section class="section-content bg padding-y-sm u-padding-top-big" >
     <div class="container">
         <div class="u-margin-bottom-medium">
-				<h1>Product Catalogue</h1>
+			<h1>                   
+                <div class="form-inline">
+                    Product Catalogue &nbsp;
+                    <div class="input-group">
+                        <asp:TextBox ID="txtSearch" CssClass="form-control rhino-search" runat="server" placeholder="Search Product"></asp:TextBox>
+                        <div class="input-group-append">
+                            <asp:Button ID="btnSearch" CssClass="form-control btn btn-warning" runat="server" Text="Search" OnClick="btnSearch_Click"></asp:Button>
+                        </div>
+                    </div>
+                </div>
+			</h1>
 		</div>
         <div class="row">
             <asp:Repeater ID="Repeater1" runat="server">
                 <ItemTemplate>
                 <a href='shop-product-item.aspx?id=<%#Eval("product_id") %>'>
                 <div class="col-md-3 col-sm-6">
-			        <figure class="card card-product card--animated">
+			        <figure class="card card-product card--animated rhino-card">
 				        <div class="img-wrap">
 					        <img src='<%#Eval("image") %>'>
 				        </div>
@@ -51,6 +100,8 @@
 					        <div class="price-wrap">
 						        <span class="price-new">NZ$ <%#Eval("price") %></span>
 						        <%--<del class="price-old">$1980</del>--%>
+                                <a href="shop-product-item.aspx?id=<%#Eval("product_id") %>" class="btn btn-warning rhino-card-view-button"> View Product Details</a>
+                                <asp:LinkButton ID="btnAddToCart" runat="server" CssClass="btn btn-warning rhino-card-add-button" CommandArgument='<%#Eval("product_id") %>' OnClick="btnAddToCart_Click" OnClientClick="return confirm('ADD TO CART this product?');">Add To Cart</asp:LinkButton>
 					        </div><!-- price-wrap.// -->
 				        </figcaption>
 			        </figure><!-- card // -->
