@@ -74,8 +74,19 @@
     <div class="container">
         <div class="u-margin-bottom-medium">
 				<h1>
+                                       
+                   <div class="form-inline">
                     Product Management &nbsp;
-                    <a class="btn btn-primary" href="add-product.aspx"><i class="fa fa-plus-circle"></i>&nbsp; Add Product</a>
+
+                        <a class="btn btn-primary" href="add-product.aspx"><i class="fa fa-plus-circle"></i>&nbsp; Add Product</a> &nbsp;
+                        
+                        <div class="input-group">
+                            <asp:TextBox ID="txtSearch" CssClass="form-control rhino-search" runat="server" placeholder="Search Product"></asp:TextBox>
+                            <div class="input-group-append">
+                                <asp:Button ID="btnSearch" CssClass="form-control btn btn-warning" runat="server" Text="Search" OnClick="btnSearch_Click"></asp:Button>
+                            </div>
+                        </div>
+                    </div>
 				</h1>
 		</div>
         <div class="row">
