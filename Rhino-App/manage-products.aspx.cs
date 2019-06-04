@@ -17,6 +17,36 @@ namespace Rhino_App
         String connStr = WebConfigurationManager.ConnectionStrings["Rhino_DB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                RefreshData(); // Binds or Refreshes Repeater
+            }
+            
+
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            // After clicking logout
+            Session.Clear(); // Remove all session
+            Response.Redirect("login.aspx"); // Redirect to login page
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            string product_id = (sender as LinkButton).CommandArgument;
+            conn = new SqlConnection(connStr);
+            cmd = new SqlCommand("DELETE FROM tbl_products WHERE product_id=@productid", conn);
+            cmd.Parameters.AddWithValue("@productid", product_id);
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            Response.Write("<script>alert(' Successfully Deleted the Product ID: " + product_id + "');</script>");
+            RefreshData();
+            conn.Close();
+        }
+        protected void RefreshData()
+        {
             conn = new SqlConnection(connStr);
             conn.Open();
             cmd = new SqlCommand("SELECT * FROM tbl_products", conn);
@@ -33,14 +63,6 @@ namespace Rhino_App
             {
                 Response.Write("<script>alert('Product Catalogue: No Products to Show');</script>");
             }
-
-        }
-
-        protected void btnLogout_Click(object sender, EventArgs e)
-        {
-            // After clicking logout
-            Session.Clear(); // Remove all session
-            Response.Redirect("login.aspx"); // Redirect to login page
         }
     }
 }

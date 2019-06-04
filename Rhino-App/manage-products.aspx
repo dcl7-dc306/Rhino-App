@@ -38,6 +38,8 @@
         
 
     </style>
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="navigation" runat="server">
     <%-- Navigation list here --%>
@@ -92,7 +94,7 @@
 						        <span class="price-new">NZ$ <%#Eval("price") %></span>
 						        <%--<del class="price-old">$1980</del>--%>
                                 <a href="update-product.aspx?id=<%#Eval("product_id") %>" class="btn btn-warning rhino-card-update-button">Update Product</a>
-                                <asp:Button ID="btnDelete" runat="server" CssClass="btn btn-outline-danger rhino-card-delete-button" Text="Delete" />
+                                <asp:LinkButton ID="btnDelete" runat="server" CssClass="btn btn-outline-danger rhino-card-delete-button" CommandArgument='<%#Eval("product_id") %>' OnClick="btnDelete_Click" OnClientClick="return confirm('Are you sure you wish to DELETE this product?');">Delete</asp:LinkButton>
 					        </div><!-- price-wrap.// -->
 				        </figcaption>
 			        </figure><!-- card // -->
