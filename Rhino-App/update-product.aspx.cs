@@ -21,38 +21,37 @@ namespace Rhino_App
         String connStr = WebConfigurationManager.ConnectionStrings["Rhino_DB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack) // when the page loads for 1st time
-            //{
-            string product = Request.QueryString["id"];
-            conn = new SqlConnection(connStr);
-
-            cmd = new SqlCommand("SELECT * FROM tbl_products WHERE product_id=@product", conn);
-            cmd.Parameters.AddWithValue("@product", product);
-
-            try
+            if (!IsPostBack) // when the page loads for 1st time - IMPORTANT FOR UPDATING FORM
             {
-                conn.Open();
-                reader = cmd.ExecuteReader();
+                string product = Request.QueryString["id"];
+                conn = new SqlConnection(connStr);
 
-                while (reader.Read())
+                cmd = new SqlCommand("SELECT * FROM tbl_products WHERE product_id=@product", conn);
+                cmd.Parameters.AddWithValue("@product", product);
+
+                try
                 {
+                    conn.Open();
+                    reader = cmd.ExecuteReader();
 
-                    txtProdName.Text = reader["name"].ToString();
-                    txtProdDesc.Text = reader["description"].ToString();
-                    lblStatusImage.Text = reader["image"].ToString();
-                    txtPrice.Text = reader["price"].ToString();
-                    lblProdId.Text = product.ToString();
-                }
-                conn.Close();
+                    while (reader.Read())
+                    {
+
+                        txtProdName.Text = reader["name"].ToString();
+                        txtProdDesc.Text = reader["description"].ToString();
+                        lblStatusImage.Text = reader["image"].ToString();
+                        txtPrice.Text = reader["price"].ToString();
+                        lblProdId.Text = product.ToString();
+                    }
+                    conn.Close();
     
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.ToString() + "');</script>");
-            }
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('" + ex.ToString() + "');</script>");
+                }
 
-
-            //}
+            }
         }
 
         protected void btnUpdateProduct_Click(object sender, EventArgs e)
