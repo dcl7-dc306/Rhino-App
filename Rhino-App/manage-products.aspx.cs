@@ -35,5 +35,12 @@ namespace Rhino_App
             }
 
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            // After clicking logout
+            Session.Clear(); // Remove all session
+            Response.Redirect("login.aspx"); // Redirect to login page
+        }
     }
 }

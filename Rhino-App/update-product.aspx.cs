@@ -112,5 +112,12 @@ namespace Rhino_App
             "alert('"+ msg +"'); window.location='" +
             Request.ApplicationPath + "update-product.aspx?id=" + id + "';", true);
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            // After clicking logout
+            Session.Clear(); // Remove all session
+            Response.Redirect("login.aspx"); // Redirect to login page
+        }
     }
 }

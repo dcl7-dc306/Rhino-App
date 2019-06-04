@@ -55,7 +55,7 @@
         </li>
         <li class="nav-item">
             <% if (Session["user"] != null){%>
-                <asp:Button runat="server" ID="btnLogout" CssClass="btn btn-warning" Text="Logout" />
+                <asp:Button runat="server" ID="btnLogout" CssClass="btn btn-warning" Text="Logout" OnClick="btnLogout_Click" />
             <%} %>
             <% else{ %>
                 <a class="btn btn-warning" href="login.aspx">

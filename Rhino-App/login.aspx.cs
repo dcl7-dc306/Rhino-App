@@ -63,7 +63,7 @@ namespace Rhino_App
                         Session["admin"] = admin;
 
                         // TODO: Admin Dashboard goes here
-                        Response.Write("<script>alert('TODO: Redirect to admin dashboard');</script>");
+                        Response.Redirect("manage-products.aspx");
 
                     }
                     else // customer = any other number
