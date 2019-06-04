@@ -72,7 +72,7 @@
                 
                 
                 <div class="container"> <!-- container //  -->
-                    <a class="navbar-brand mr-auto" href="index.aspx"> <img class="logo logo-medium" src="images/products/Rhino.png">RHINO</a>
+                    <a class="navbar-brand mr-auto" href="index.aspx"> <img class="logo logo-medium" src="images/logo-white.png"></a>
         <form runat="server" class="needs-validation" style="margin: 0 !important;">                                 
                     <asp:ContentPlaceHolder ID="navigation" runat="server">
                     </asp:ContentPlaceHolder>
