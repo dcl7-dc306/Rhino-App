@@ -48,5 +48,12 @@ namespace Rhino_App
                 Response.Write("<script>alert('" + ex.ToString() + "');</script>");
             }
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            // After clicking logout
+            Session.Clear(); // Remove all session
+            Response.Redirect("login.aspx"); // Redirect to login page
+        }
     }
 }
