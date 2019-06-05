@@ -14,17 +14,17 @@
             <a class="nav-link page-scroll active" href="shop-products.aspx">Product Catalogue</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link page-scroll" href="shop-cart.aspx"><i class="fas fa-shopping-cart icon--small"></i> Check Cart</a>
+        </li>
+        <li class="nav-item">
             <% if (Session["user"] != null){%>
-                <asp:Button runat="server" ID="btnLogout" CssClass="btn btn-warning" Text="Logout" />
-            <%} %>
-            <% else{ %>
+               <asp:Button runat="server" ID="btnLogout" CssClass="btn btn-warning" Text="Logout" OnClick="btnLogout_Click" />    
+            <% } %>
+            <% else { %>
                 <a class="btn btn-warning" href="login.aspx">
                     <i class="fas fa-user icon--small <%--icon--medium--cta--%>"></i> Login 
                 </a>
             <%} %>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link page-scroll" href="orders.aspx"><i class="fas fa-shopping-cart icon--small"></i> Check Cart</a>
         </li>
     </ul>
     </div>

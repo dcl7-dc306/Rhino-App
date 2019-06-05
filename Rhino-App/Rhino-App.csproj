@@ -200,6 +200,7 @@
     <Content Include="pg_single.aspx" />
     <Content Include="register.aspx" />
     <Content Include="email-templates\successRegister.html" />
+    <Content Include="shop-cart.aspx" />
     <Content Include="shop-product-item.aspx" />
     <Content Include="shop-products.aspx" />
     <Content Include="update-product.aspx" />
@@ -313,6 +314,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shop-cart.aspx.cs">
+      <DependentUpon>shop-cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shop-cart.aspx.designer.cs">
+      <DependentUpon>shop-cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="shop-product-item.aspx.cs">
       <DependentUpon>shop-product-item.aspx</DependentUpon>
