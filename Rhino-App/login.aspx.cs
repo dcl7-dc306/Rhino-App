@@ -62,7 +62,7 @@ namespace Rhino_App
                         Session["user"] = username;
                         Session["admin"] = admin;
 
-                        // TODO: Admin Dashboard goes here
+                        // Redirect to Product Management
                         Response.Redirect("manage-products.aspx");
 
                     }
@@ -73,8 +73,8 @@ namespace Rhino_App
                         Session["user"] = username;
                         Session["admin"] = admin;
 
-                        // TODO: Customer pages here
-                        Response.Write("<script>alert('TODO: Customer User');</script>");
+                        // Redirect to Product Catalogue
+                        Response.Redirect("shop-products.aspx");
                     }
 
                 }
