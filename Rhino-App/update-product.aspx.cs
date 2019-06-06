@@ -21,35 +21,56 @@ namespace Rhino_App
         String connStr = WebConfigurationManager.ConnectionStrings["Rhino_DB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] != null) // user logged in
+            {
+                if (Session["admin"].ToString() != "1") // checks if not administrator
+                {
+                    Response.Redirect("shop-products.aspx"); // redirect to product catalogue
+                }
+            }
+            else
+            {
+                Response.Redirect("login.aspx"); // if not, redirect to login
+            }
+
             if (!IsPostBack) // when the page loads for 1st time - IMPORTANT FOR UPDATING FORM
             {
                 string product = Request.QueryString["id"];
-                conn = new SqlConnection(connStr);
-
-                cmd = new SqlCommand("SELECT * FROM tbl_products WHERE product_id=@product", conn);
-                cmd.Parameters.AddWithValue("@product", product);
-
-                try
+                if(product != null)
                 {
-                    conn.Open();
-                    reader = cmd.ExecuteReader();
+                    conn = new SqlConnection(connStr);
 
-                    while (reader.Read())
+                    cmd = new SqlCommand("SELECT * FROM tbl_products WHERE product_id=@product", conn);
+                    cmd.Parameters.AddWithValue("@product", product);
+
+                    try
                     {
+                        conn.Open();
+                        reader = cmd.ExecuteReader();
 
-                        txtProdName.Text = reader["name"].ToString();
-                        txtProdDesc.Text = reader["description"].ToString();
-                        lblStatusImage.Text = reader["image"].ToString();
-                        txtPrice.Text = reader["price"].ToString();
-                        lblProdId.Text = product.ToString();
+                        while (reader.Read())
+                        {
+
+                            txtProdName.Text = reader["name"].ToString();
+                            txtProdDesc.Text = reader["description"].ToString();
+                            lblStatusImage.Text = reader["image"].ToString();
+                            txtPrice.Text = reader["price"].ToString();
+                            lblProdId.Text = product.ToString();
+                        }
+                        conn.Close();
+
                     }
-                    conn.Close();
-    
+                    catch (Exception ex)
+                    {
+                        Response.Write("<script>alert('" + ex.ToString() + "');</script>");
+                    }
+
                 }
-                catch (Exception ex)
+                else
                 {
-                    Response.Write("<script>alert('" + ex.ToString() + "');</script>");
+                    Response.Redirect("manage-products.aspx");
                 }
+                
 
             }
         }

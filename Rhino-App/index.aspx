@@ -28,7 +28,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link page-scroll" href="orders.aspx"><i class="fas fa-shopping-cart icon--small"></i> Check Cart</a>
+            <a class="nav-link page-scroll" href="shop-cart.aspx"><i class="fas fa-shopping-cart icon--small"></i> Check Cart</a>
         </li>
     </ul>
     </div>
@@ -40,7 +40,7 @@
 
 	<%--======================= BANNER SECTION ============================--%>
 
-	<section id="intro" class="section-intro bg-secondary pt-5">
+	<section id="intro" class="section-intro bg-secondary">
 		<div class="container">
 			<div class="row d-flex" style="min-height:600px;">
 				<div class="col-sm-6 d-flex align-items-center">

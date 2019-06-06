@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         #login{
-            background: url("../images/banners/login.jpg") no-repeat center center fixed;
+            background:  linear-gradient(to bottom right,   rgba(38, 60, 81, .7), rgba(141, 0, 0, 0.7)), url(../images/banners/login.jpg) no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -44,9 +44,7 @@
     <div class="row justify-content-center">
         <div class="jumbotron col-4">
                 
-            <div class="img-wrap u-margin-bottom-medium">
-                <img src="images/logo.png"/>
-            </div>
+            <h1 class="u-margin-bottom-medium">Login</h1>
             <div class="form-group">
                 <asp:Label ID="lblUser" runat="server" Text="Username" AssociatedControlID="txtUser"></asp:Label>
                 <asp:TextBox ID="txtUser" CssClass="form-control" runat="server"></asp:TextBox>

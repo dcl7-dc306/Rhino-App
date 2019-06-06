@@ -43,12 +43,6 @@
         
 
     </style>
-    <script>
-        $(document).ready(function () {
-            $(".navbar-brand").attr("href", "manage-products.aspx");
-        });
-    </script>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="navigation" runat="server">
     <%-- Navigation list here --%>
