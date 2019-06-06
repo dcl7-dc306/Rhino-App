@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="manage-products.aspx.cs" Inherits="Rhino_App.manage_products" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
+        .navbar{
+            background: #343a40;
+        }
+
         .rhino-card {
             overflow:hidden;
         }
@@ -39,7 +43,11 @@
         
 
     </style>
-
+    <script>
+        $(document).ready(function () {
+            $(".navbar-brand").attr("href", "manage-products.aspx");
+        });
+    </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="navigation" runat="server">

@@ -43,7 +43,10 @@
     <div class="container"> 
     <div class="row justify-content-center">
         <div class="jumbotron col-4">
-            <h1 class="u-margin-bottom-medium">Login</h1>
+                
+            <div class="img-wrap u-margin-bottom-medium">
+                <img src="images/logo.png"/>
+            </div>
             <div class="form-group">
                 <asp:Label ID="lblUser" runat="server" Text="Username" AssociatedControlID="txtUser"></asp:Label>
                 <asp:TextBox ID="txtUser" CssClass="form-control" runat="server"></asp:TextBox>

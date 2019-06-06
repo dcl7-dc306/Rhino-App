@@ -1,9 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="add-product.aspx.cs" Inherits="Rhino_App.add_product" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-    .rhino-forms{
-        padding-top: 30px;
-    }
+        .navbar{
+            background: #343a40;
+        }
+
+        .rhino-forms{
+            padding-top: 30px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="navigation" runat="server">
