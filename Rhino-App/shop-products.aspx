@@ -80,7 +80,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
     
-	<section class="section-content bg padding-y-sm u-padding-top-big" >
+	<section class="section-content bg padding-y-sm u-padding-top-medium" >
     <div class="container">
         <div class="u-margin-bottom-medium">
 			<h1>                   
