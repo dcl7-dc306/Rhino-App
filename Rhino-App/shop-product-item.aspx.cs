@@ -19,7 +19,14 @@ namespace Rhino_App
         String connStr = WebConfigurationManager.ConnectionStrings["Rhino_DB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+
             string product = Request.QueryString["id"];
+
+            if (product == null)
+            {
+                Response.Redirect("shop-products.aspx");
+            }
+
             conn = new SqlConnection(connStr);
 
             cmd = new SqlCommand("SELECT * FROM tbl_products WHERE product_id=@product", conn);
@@ -38,7 +45,7 @@ namespace Rhino_App
                 }
                 else
                 {
-                    Response.Write("<script>alert('No Item');</script>");
+                    AlertAndRedirect("No Product Available. Redirecting to Product Catalogue");
                 }
 
                 conn.Close();
@@ -54,6 +61,13 @@ namespace Rhino_App
             // After clicking logout
             Session.Clear(); // Remove all session
             Response.Redirect("login.aspx"); // Redirect to login page
+        }
+
+        public void AlertAndRedirect(string msg)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect",
+            "alert('" + msg + "'); window.location='" +
+            Request.ApplicationPath + "shop-products.aspx'", true);
         }
     }
 }
