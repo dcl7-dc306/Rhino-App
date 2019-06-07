@@ -63,7 +63,7 @@
 					<header class="intro-wrap text-white">
 						<h2 class="display-3"> Reach your limits and take on the world </h2>
 						<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat tortor at posuere varius. Aenean mi ligula, interdum et nisl at, dignissim vehicula justo. Nunc augue lectus, fringilla non vulputate in, ornare id nunc.</p>
-						<a href="#" class="btn btn-warning">Shop Now</a>
+						<a href="shop-products.aspx" class="btn btn-warning">Shop Now</a>
 						<%--<a href="#" class="btn btn-light">Learn more</a>--%>
 					</header>  <!-- intro-wrap .// -->
 				</div> <!-- col.// -->

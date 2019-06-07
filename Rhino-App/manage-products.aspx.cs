@@ -19,6 +19,7 @@ namespace Rhino_App
         {
             if (Session["user"] != null) // user logged in
             {
+                lblUser.Text = Session["user"].ToString();
                 if (Session["admin"].ToString() != "1") // checks if not administrator
                 {
                     Response.Redirect("shop-products.aspx"); // redirect to product catalogue
