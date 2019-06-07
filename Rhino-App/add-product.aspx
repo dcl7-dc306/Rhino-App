@@ -45,7 +45,7 @@
     <%--// Navigation list here --%>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
-    <div class="rhino-forms">
+    <div class="rhino-forms bg">
     <div class="container"> 
     <div class="row justify-content-center">
 
