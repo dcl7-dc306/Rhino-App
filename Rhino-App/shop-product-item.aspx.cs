@@ -19,7 +19,11 @@ namespace Rhino_App
         String connStr = WebConfigurationManager.ConnectionStrings["Rhino_DB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["user"] != null)
+            {
+                lblUser.Text = Session["user"].ToString();
+            }
+            
             string product = Request.QueryString["id"];
 
             if (product == null)

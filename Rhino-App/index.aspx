@@ -37,6 +37,11 @@
         </li>
         <% } else { %>
         <li class="nav-item">
+           <div class="rhino-user">
+                <i class="fa fa-user-circle"></i> Hello, <asp:Label ID="lblUser" runat="server" Text=""></asp:Label>
+           </div>
+        </li>
+        <li class="nav-item">
            <asp:Button runat="server" ID="btnLogout" CssClass="btn btn-warning" Text="Logout" OnClick="btnLogout_Click" />
         </li>
         <%} %>

@@ -11,10 +11,15 @@ namespace Rhino_App
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user"] != null) // user logged in
-                if (Session["admin"].ToString() == "1") // checks if administrator
+
+            if (Session["user"] != null){ // user logged in
+                lblUser.Text = Session["user"].ToString();
+                if (Session["admin"].ToString() == "1")
+                { // checks if administrator
                     Response.Redirect("manage-products.aspx"); // redirect to product management
-                    
+                }
+            }
+           
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)

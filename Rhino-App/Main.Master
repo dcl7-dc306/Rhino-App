@@ -60,6 +60,12 @@
             .navbar{
                 background: #D51F26;
             }
+            .rhino-user{
+                color: #fff;
+                border-left: 1px solid #fff;
+                padding: 6px 15px;
+                margin: 0 5px;
+            }
         </style>
         
 

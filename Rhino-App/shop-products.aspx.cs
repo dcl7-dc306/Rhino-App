@@ -18,6 +18,11 @@ namespace Rhino_App
         String connStr = WebConfigurationManager.ConnectionStrings["Rhino_DB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] != null)
+            {
+                lblUser.Text = Session["user"].ToString();
+            }
+
             conn = new SqlConnection(connStr);
             conn.Open();
             cmd = new SqlCommand("SELECT * FROM tbl_products", conn);
