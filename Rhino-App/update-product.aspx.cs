@@ -36,7 +36,7 @@ namespace Rhino_App
             if (!IsPostBack) // when the page loads for 1st time - IMPORTANT FOR UPDATING FORM
             {
                 string product = Request.QueryString["id"];
-                if(product != null)
+                if (product != null)
                 {
                     conn = new SqlConnection(connStr);
 
@@ -47,17 +47,25 @@ namespace Rhino_App
                     {
                         conn.Open();
                         reader = cmd.ExecuteReader();
-
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
+                            while (reader.Read())
+                            {
 
-                            txtProdName.Text = reader["name"].ToString();
-                            txtProdDesc.Text = reader["description"].ToString();
-                            lblStatusImage.Text = reader["image"].ToString();
-                            txtPrice.Text = reader["price"].ToString();
-                            lblProdId.Text = product.ToString();
+                                txtProdName.Text = reader["name"].ToString();
+                                txtProdDesc.Text = reader["description"].ToString();
+                                lblStatusImage.Text = reader["image"].ToString();
+                                txtPrice.Text = reader["price"].ToString();
+                                lblProdId.Text = product.ToString();
+                            }
+                            conn.Close();
                         }
-                        conn.Close();
+                        else
+                        {
+                            // if product is no existing in db
+                            Response.Redirect("manage-products.aspx");
+                        }
+
 
                     }
                     catch (Exception ex)
@@ -68,6 +76,7 @@ namespace Rhino_App
                 }
                 else
                 {
+                    // if no request params
                     Response.Redirect("manage-products.aspx");
                 }
                 
