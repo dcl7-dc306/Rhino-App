@@ -14,9 +14,14 @@ namespace Rhino_App
             if (Session["user"] != null) // user logged in
                 if (Session["admin"].ToString() == "1") // checks if administrator
                     Response.Redirect("manage-products.aspx"); // redirect to product management
-                else // if not, assume its customer
-                    Response.Redirect("shop-products.aspx"); // redirect to product catalogue
+                    
+        }
 
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            // After clicking logout
+            Session.Clear(); // Remove all session
+            Response.Redirect("login.aspx"); // Redirect to login page
         }
     }
 }

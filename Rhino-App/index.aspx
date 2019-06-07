@@ -18,6 +18,14 @@
             <a class="nav-link page-scroll active" href="index.aspx">Home</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link page-scroll" href="shop-products.aspx"><i class="fas fa-shopping-bag icon--small"></i> Product Catalogue</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link page-scroll" href="shop-cart.aspx"><i class="fas fa-shopping-cart icon--small"></i> Check Cart</a>
+        </li>
+        <% if (Session["user"] == null)
+            {%>
+        <li class="nav-item">
             <a class="nav-link page-scroll" href="register.aspx">
                 <i class="fas fa- icon--small <%--icon--medium--cta--%>"></i> Create an Account 
             </a>
@@ -27,9 +35,12 @@
                 <i class="fas fa-user icon--small <%--icon--medium--cta--%>"></i> Login 
             </a>
         </li>
+        <% } else { %>
         <li class="nav-item">
-            <a class="nav-link page-scroll" href="shop-cart.aspx"><i class="fas fa-shopping-cart icon--small"></i> Check Cart</a>
+           <asp:Button runat="server" ID="btnLogout" CssClass="btn btn-warning" Text="Logout" OnClick="btnLogout_Click" />
         </li>
+        <%} %>
+
     </ul>
     </div>
     <%--// Navigation list here --%>
