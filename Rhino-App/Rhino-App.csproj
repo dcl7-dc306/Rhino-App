@@ -220,6 +220,8 @@
     <Compile Include="add-product.aspx.designer.cs">
       <DependentUpon>add-product.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\Cart.cs" />
+    <Compile Include="App_Code\CartItem.cs" />
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

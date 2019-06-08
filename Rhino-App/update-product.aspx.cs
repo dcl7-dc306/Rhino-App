@@ -36,7 +36,6 @@ namespace Rhino_App
 
                     while (reader.Read())
                     {
-
                         txtProdName.Text = reader["name"].ToString();
                         txtProdDesc.Text = reader["description"].ToString();
                         lblStatusImage.Text = reader["image"].ToString();

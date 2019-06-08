@@ -55,5 +55,11 @@ namespace Rhino_App
             Session.Clear(); // Remove all session
             Response.Redirect("login.aspx"); // Redirect to login page
         }
+        protected void btnAddToCart_Click(object sender, CommandEventArgs e)
+        {
+            Cart cart = Cart.GetShoppingCart();            
+            cart.AddItem(int.Parse(e.CommandArgument.ToString()));
+            Response.Redirect("shop-cart.aspx");
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace Rhino_App
             {
                 Response.Write("<script>alert('Product Catalogue: No Products to Show');</script>");
             }
- 
+            
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
@@ -65,9 +65,12 @@ namespace Rhino_App
             conn.Close();
         }
 
-        protected void btnAddToCart_Click(object sender, EventArgs e)
+        protected void btnAddToCart_Click(object sender, CommandEventArgs e)
         {
-            // Add to cart function
+            Cart cart = Cart.GetShoppingCart();       
+            
+            cart.AddItem(int.Parse(e.CommandArgument.ToString()));
+            Response.Redirect("shop-cart.aspx");
         }
     }
 }
