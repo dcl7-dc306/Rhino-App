@@ -67,7 +67,6 @@ namespace Rhino_App
                             Response.Redirect("manage-products.aspx");
                         }
 
-
                     }
                     catch (Exception ex)
                     {

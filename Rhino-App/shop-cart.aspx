@@ -51,13 +51,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+							<asp:Repeater ID="Repeater1" runat="server">
+							<ItemTemplate>
+                                <tr>							
                                     <td>
                                         <figure class="media">
                                             <div class="img-wrap">
-                                                <img src="images/items/1.jpg" class="img-thumbnail img-sm"></div>
+                                                <img src='<%#Eval("image") %>' class="img-thumbnail img-sm"></div>
                                             <figcaption class="media-body">
-                                                <h6 class="title text-truncate">Product name goes here </h6>
+                                                <h6 class="title text-truncate"><%#Eval("name") %></h6>
                                                 <dl class="dlist-inline small">
                                                     <dt>Size: </dt>
                                                     <dd>XXL</dd>
@@ -70,85 +72,22 @@
                                         </figure>
                                     </td>
                                     <td>
-                                        <p>1</p>
+                                        <p><%#Eval("quantity") %></p>
                                     </td>
                                     <td>
                                         <div class="price-wrap">
-                                            <var class="price">USD 145</var>
-                                            <small class="text-muted">(USD5 each)</small>
+                                            <var class="price">NZ$ <%#Eval("ItemTotal") %></var>
+                                            <small class="text-muted">(NZ$ <%#Eval("price") %> each)</small>
                                         </div>
                                         <!-- price-wrap .// -->
                                     </td>
                                     <td class="text-right">
-                                        <a href="" class="btn btn-outline-danger">× Remove</a>
+                                        <!--<a href="" class="btn btn-outline-danger">× Remove</a>-->
+                                        <asp:Button Text="remove" runat="server" CssClass="btn btn-outline-danger" CommandArgument='<%#Eval("product_id")%>' OnCommand="btnRmvToCart_Click" ></asp:Button>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <figure class="media">
-                                            <div class="img-wrap">
-                                                <img src="images/items/2.jpg" class="img-thumbnail img-sm"></div>
-                                            <figcaption class="media-body">
-                                                <h6 class="title text-truncate">Product name goes here </h6>
-                                                <dl class="dlist-inline small">
-                                                    <dt>Size: </dt>
-                                                    <dd>XXL</dd>
-                                                </dl>
-                                                <dl class="dlist-inline small">
-                                                    <dt>Color: </dt>
-                                                    <dd>Orange color</dd>
-                                                </dl>
-                                            </figcaption>
-                                        </figure>
-                                    </td>
-                                    <td>
-                                        <p>1</p>
-                                    </td>
-                                    <td>
-                                        <div class="price-wrap">
-                                            <var class="price">USD 35</var>
-                                            <small class="text-muted">(USD10 each)</small>
-                                        </div>
-                                        <!-- price-wrap .// -->
-                                    </td>
-                                    <td class="text-right">
-                                        <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-outline-success" data-toggle="tooltip"><i class="fa fa-heart"></i></a>
-                                        <a href="" class="btn btn-outline-danger btn-round">× Remove</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <figure class="media">
-                                            <div class="img-wrap">
-                                                <img src="images/items/3.jpg" class="img-thumbnail img-sm"></div>
-                                            <figcaption class="media-body">
-                                                <h6 class="title text-truncate">Product name goes here </h6>
-                                                <dl class="dlist-inline small">
-                                                    <dt>Size: </dt>
-                                                    <dd>XXL</dd>
-                                                </dl>
-                                                <dl class="dlist-inline small">
-                                                    <dt>Color: </dt>
-                                                    <dd>Orange color</dd>
-                                                </dl>
-                                            </figcaption>
-                                        </figure>
-                                    </td>
-                                    <td>
-                                        <p>1</p>
-                                    </td>
-                                    <td>
-                                        <div class="price-wrap">
-                                            <var class="price">USD 45</var>
-                                            <small class="text-muted">(USD15 each)</small>
-                                        </div>
-                                        <!-- price-wrap .// -->
-                                    </td>
-                                    <td class="text-right">
-                                        <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-outline-success" data-toggle="tooltip"><i class="fa fa-heart"></i></a>
-                                        <a href="" class="btn btn-outline-danger btn-round">× Remove</a>
-                                    </td>
-                                </tr>
+                                    </tr>	
+							    </ItemTemplate>
+							    </asp:Repeater>								
                             </tbody>
                         </table>
                     </div>

@@ -101,7 +101,7 @@
 												    <dt>Quantity: </dt>
 												    <dd>
                                                         <asp:DropDownList ID="drpQuantity" CssClass="form-control form-control-sm" runat="server">
-                                                            <asp:ListItem Selected="True" Value="1"> 1 </asp:ListItem>
+                                                            <asp:ListItem Value="1"> 1 </asp:ListItem>
                                                             <asp:ListItem Value="2"> 2 </asp:ListItem>
                                                             <asp:ListItem Value="3"> 3 </asp:ListItem>
                                                         </asp:DropDownList>
@@ -113,7 +113,8 @@
 									    </div>
 									    <!-- row.// -->
 									    <hr>
-									    <a href="#" class="btn  btn-warning"><i class='fa fa-plus'></i>&nbsp;Add to Cart </a>
+									    <!--<a href="#" class="btn  btn-warning"><i class='fa fa-plus'></i>&nbsp;Add to Cart </a>-->
+                                        <asp:LinkButton ID="btnAddToCart" runat="server" CssClass="btn btn-warning rhino-card-add-button" CommandArgument='<%#Eval("product_id")%>' OnCommand="btnAddToCart_Click" OnClientClick="return confirm('ADD TO CART this product?');">Add To Cart</asp:LinkButton>
 									    <a href="#" class="btn  btn-outline-warning">Checkout </a>
 									    <!-- short-info-wrap .// -->
 								    </article>

@@ -115,7 +115,7 @@
 						        <span class="price-new">NZ$ <%#Eval("price") %></span>
 						        <%--<del class="price-old">$1980</del>--%>
                                 <a href="shop-product-item.aspx?id=<%#Eval("product_id") %>" class="btn btn-warning rhino-card-view-button"> View Product Details</a>
-                                <asp:LinkButton ID="btnAddToCart" runat="server" CssClass="btn btn-warning rhino-card-add-button" CommandArgument='<%#Eval("product_id") %>' OnClick="btnAddToCart_Click" OnClientClick="return confirm('ADD TO CART this product?');">Add To Cart</asp:LinkButton>
+                                <asp:LinkButton ID="btnAddToCart" runat="server" CssClass="btn btn-warning rhino-card-add-button" CommandArgument='<%#Eval("product_id")%>' OnCommand="btnAddToCart_Click" OnClientClick="return confirm('ADD TO CART this product?');">Add To Cart</asp:LinkButton>
 					        </div><!-- price-wrap.// -->
 				        </figcaption>
 			        </figure><!-- card // -->

@@ -76,6 +76,7 @@ namespace Rhino_App
                         Session["first"] = firstname;
                         Session["user"] = username;
                         Session["admin"] = admin;
+                        Cart cart = Cart.GetShoppingCart(); //creating cart
 
                         // Redirect to Product Catalogue
                         Response.Redirect("shop-products.aspx");

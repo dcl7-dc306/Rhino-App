@@ -59,6 +59,7 @@ namespace Rhino_App
                 Response.Write("<script>alert('" + ex.ToString() + "');</script>");
             }
         }
+        
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
@@ -72,6 +73,16 @@ namespace Rhino_App
             ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect",
             "alert('" + msg + "'); window.location='" +
             Request.ApplicationPath + "shop-products.aspx'", true);
+        }
+
+        protected void btnAddToCart_Click(object sender, CommandEventArgs e)
+        {
+            Cart cart = Cart.GetShoppingCart();  
+            int qt = 0;
+            qt =int.Parse(((DropDownList)Repeater1.Items[0].FindControl("drpQuantity")).SelectedItem.Value);
+
+            cart.SetItemQuantity(int.Parse(e.CommandArgument.ToString()), qt);
+            Response.Redirect("shop-cart.aspx");
         }
     }
 }
