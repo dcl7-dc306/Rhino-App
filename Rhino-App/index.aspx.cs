@@ -19,7 +19,7 @@ namespace Rhino_App
                     Response.Redirect("manage-products.aspx"); // redirect to product management
                 }
             }
-           
+            Cart cart = Cart.GetShoppingCart();
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)

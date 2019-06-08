@@ -17,6 +17,7 @@ namespace Rhino_App
         String connStr = WebConfigurationManager.ConnectionStrings["Rhino_DB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             var id = "";
             var cart = (Cart)Session["cart"];
             foreach (var item in cart.GetShopCart())

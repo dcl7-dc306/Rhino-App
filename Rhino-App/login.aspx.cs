@@ -27,6 +27,7 @@ namespace Rhino_App
                     Response.Redirect("manage-products.aspx"); // redirect to product management
                 else // if not, assume its customer
                     Response.Redirect("shop-products.aspx"); // redirect to product catalogue
+            Cart cart = Cart.GetShoppingCart();
         }
 
 
@@ -76,7 +77,7 @@ namespace Rhino_App
                         Session["first"] = firstname;
                         Session["user"] = username;
                         Session["admin"] = admin;
-                        Cart cart = Cart.GetShoppingCart(); //creating cart
+                         //creating cart
 
                         // Redirect to Product Catalogue
                         Response.Redirect("shop-products.aspx");
