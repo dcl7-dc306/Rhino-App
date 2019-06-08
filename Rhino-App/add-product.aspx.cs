@@ -18,7 +18,18 @@ namespace Rhino_App
         String connStr = WebConfigurationManager.ConnectionStrings["Rhino_DB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["user"] != null) // user logged in
+            {
+                lblUser.Text = Session["user"].ToString();
+                if (Session["admin"].ToString() != "1") // checks if not administrator
+                {
+                    Response.Redirect("shop-products.aspx"); // redirect to product catalogue
+                }
+            }
+            else
+            {
+                Response.Redirect("login.aspx"); // if not, redirect to login
+            }
         }
 
         protected void btnAddProduct_Click(object sender, EventArgs e)

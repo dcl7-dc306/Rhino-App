@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="update-product.aspx.cs" Inherits="Rhino_App.update_product" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .navbar{
+            background: #343a40;
+        }
+    </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="navigation" runat="server">
     <%-- Navigation list here --%>
@@ -15,16 +21,23 @@
         <li class="nav-item">
             <a class="nav-link page-scroll" href="trans-history.aspx">Transaction History</a>
         </li>
-        <li class="nav-item">
-            <% if (Session["user"] != null){%>
-                <asp:Button runat="server" ID="btnLogout" CssClass="btn btn-warning" Text="Logout" OnClick="btnLogout_Click" />
-            <%} %>
-            <% else{ %>
-                <a class="btn btn-warning" href="login.aspx">
-                    <i class="fas fa-user icon--small <%--icon--medium--cta--%>"></i> Login 
-                </a>
-            <%} %>
-        </li>
+        <% if (Session["user"] == null){%>
+            <li class="nav-item">
+                 <a class="btn btn-warning" href="login.aspx">
+                        <i class="fas fa-user icon--small <%--icon--medium--cta--%>"></i> Login 
+                 </a>   
+            </li>
+        <% } else { %>
+            <li class="nav-item">
+               <div class="rhino-user">
+                    <i class="fa fa-user-circle"></i> Hello, <asp:Label ID="lblUser" runat="server" Text=""></asp:Label>
+               </div>
+            </li>
+            <li class="nav-item">
+               <asp:Button runat="server" ID="Button1" CssClass="btn btn-warning" Text="Logout" OnClick="btnLogout_Click" />
+            </li>
+        <%} %>
+
     </ul>
     </div>
     <%--// Navigation list here --%>

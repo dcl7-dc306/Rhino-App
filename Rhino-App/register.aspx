@@ -3,7 +3,7 @@
     <%-- CSS --%>
     <style>
         #register{
-            background: url("../images/banners/register.jpg") no-repeat center center fixed;
+            background: linear-gradient(to bottom right,   rgba(38, 60, 81, .7), rgba(141, 0, 0, 0.7)), url("../images/banners/register.jpg") no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;

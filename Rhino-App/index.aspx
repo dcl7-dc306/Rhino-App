@@ -18,6 +18,14 @@
             <a class="nav-link page-scroll active" href="index.aspx">Home</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link page-scroll" href="shop-products.aspx"><i class="fas fa-shopping-bag icon--small"></i> Product Catalogue</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link page-scroll" href="shop-cart.aspx"><i class="fas fa-shopping-cart icon--small"></i> Check Cart</a>
+        </li>
+        <% if (Session["user"] == null)
+            {%>
+        <li class="nav-item">
             <a class="nav-link page-scroll" href="register.aspx">
                 <i class="fas fa- icon--small <%--icon--medium--cta--%>"></i> Create an Account 
             </a>
@@ -27,9 +35,17 @@
                 <i class="fas fa-user icon--small <%--icon--medium--cta--%>"></i> Login 
             </a>
         </li>
+        <% } else { %>
         <li class="nav-item">
-            <a class="nav-link page-scroll" href="orders.aspx"><i class="fas fa-shopping-cart icon--small"></i> Check Cart</a>
+           <div class="rhino-user">
+                <i class="fa fa-user-circle"></i> Hello, <asp:Label ID="lblUser" runat="server" Text=""></asp:Label>
+           </div>
         </li>
+        <li class="nav-item">
+           <asp:Button runat="server" ID="btnLogout" CssClass="btn btn-warning" Text="Logout" OnClick="btnLogout_Click" />
+        </li>
+        <%} %>
+
     </ul>
     </div>
     <%--// Navigation list here --%>
@@ -40,14 +56,14 @@
 
 	<%--======================= BANNER SECTION ============================--%>
 
-	<section id="intro" class="section-intro bg-secondary pt-5">
+	<section id="intro" class="section-intro bg-secondary">
 		<div class="container">
 			<div class="row d-flex" style="min-height:600px;">
 				<div class="col-sm-6 d-flex align-items-center">
 					<header class="intro-wrap text-white">
 						<h2 class="display-3"> Reach your limits and take on the world </h2>
 						<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat tortor at posuere varius. Aenean mi ligula, interdum et nisl at, dignissim vehicula justo. Nunc augue lectus, fringilla non vulputate in, ornare id nunc.</p>
-						<a href="#" class="btn btn-warning">Shop Now</a>
+						<a href="shop-products.aspx" class="btn btn-warning">Shop Now</a>
 						<%--<a href="#" class="btn btn-light">Learn more</a>--%>
 					</header>  <!-- intro-wrap .// -->
 				</div> <!-- col.// -->

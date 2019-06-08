@@ -50,28 +50,42 @@
                        
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link page-scroll active" href="shop-products.aspx">Product Catalogue</a>
+            <a class="nav-link page-scroll" href="index.aspx">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link page-scroll active" href="shop-products.aspx"><i class="fas fa-shopping-bag icon--small"></i> Product Catalogue</a>
         </li>
         <li class="nav-item">
             <a class="nav-link page-scroll" href="shop-cart.aspx"><i class="fas fa-shopping-cart icon--small"></i> Check Cart</a>
         </li>
+        <% if (Session["user"] == null){%>
         <li class="nav-item">
-            <% if (Session["user"] != null){%>
-               <asp:Button runat="server" ID="btnLogout" CssClass="btn btn-warning" Text="Logout" OnClick="btnLogout_Click" />    
-            <% } %>
-            <% else { %>
-                <a class="btn btn-warning" href="login.aspx">
-                    <i class="fas fa-user icon--small <%--icon--medium--cta--%>"></i> Login 
-                </a>
-            <%} %>
+            <a class="nav-link page-scroll" href="register.aspx">
+                <i class="fas fa- icon--small <%--icon--medium--cta--%>"></i> Create an Account 
+            </a>
         </li>
+        <li class="nav-item">
+            <a class="btn btn-warning" href="login.aspx">
+                <i class="fas fa-user icon--small <%--icon--medium--cta--%>"></i> Login 
+            </a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+           <div class="rhino-user">
+                <i class="fa fa-user-circle"></i> Hello, <asp:Label ID="lblUser" runat="server" Text=""></asp:Label>
+           </div>
+        </li>
+        <li class="nav-item">
+           <asp:Button runat="server" ID="btnLogout" CssClass="btn btn-warning" Text="Logout" OnClick="btnLogout_Click" />
+        </li>
+        <%} %>
     </ul>
     </div>
     <%--// Navigation list here --%>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
     
-	<section class="section-content bg padding-y-sm u-padding-top-big" >
+	<section class="section-content bg padding-y-sm u-padding-top-medium" >
     <div class="container">
         <div class="u-margin-bottom-medium">
 			<h1>                   
