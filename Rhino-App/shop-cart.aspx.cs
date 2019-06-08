@@ -68,5 +68,12 @@ namespace Rhino_App
             cart.RemoveItem(int.Parse((sender as LinkButton).CommandArgument));
             Response.Redirect("shop-products.aspx");
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            // After clicking logout
+            Session.Clear(); // Remove all session
+            Response.Redirect("login.aspx"); // Redirect to login page
+        }
     }
 }

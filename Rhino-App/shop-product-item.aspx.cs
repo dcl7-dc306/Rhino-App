@@ -19,44 +19,47 @@ namespace Rhino_App
         String connStr = WebConfigurationManager.ConnectionStrings["Rhino_DB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user"] != null)
-            {
-                lblUser.Text = Session["user"].ToString();
-            }
+            if (!IsPostBack)
+            { 
+                if (Session["user"] != null)
+                {
+                    lblUser.Text = Session["user"].ToString();
+                }
             
-            string product = Request.QueryString["id"];
+                string product = Request.QueryString["id"];
 
-            if (product == null)
-            {
-                Response.Redirect("shop-products.aspx");
-            }
-
-            conn = new SqlConnection(connStr);
-
-            cmd = new SqlCommand("SELECT * FROM tbl_products WHERE product_id=@product", conn);
-            cmd.Parameters.AddWithValue("@product", product);
-            try
-            {
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
+                if (product == null)
                 {
-                    Repeater1.DataSource = dt;
-                    Repeater1.DataBind();
-                }
-                else
-                {
-                    AlertAndRedirect("No Product Available. Redirecting to Product Catalogue");
+                    Response.Redirect("shop-products.aspx");
                 }
 
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.ToString() + "');</script>");
+                conn = new SqlConnection(connStr);
+
+                cmd = new SqlCommand("SELECT * FROM tbl_products WHERE product_id=@product", conn);
+                cmd.Parameters.AddWithValue("@product", product);
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        Repeater1.DataSource = dt;
+                        Repeater1.DataBind();
+                    }
+                    else
+                    {
+                        AlertAndRedirect("No Product Available. Redirecting to Product Catalogue");
+                    }
+
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('" + ex.ToString() + "');</script>");
+                }
             }
         }        
 

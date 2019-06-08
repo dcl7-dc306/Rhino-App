@@ -100,7 +100,7 @@
 											    <dl class="dlist-inline">
 												    <dt>Quantity: </dt>
 												    <dd>
-                                                        <asp:DropDownList ID="drpQuantity" CssClass="form-control form-control-sm" runat="server">
+                                                        <asp:DropDownList ID="drpQuantity" CssClass="form-control form-control-sm" AutoPostBack="true" runat="server">
                                                             <asp:ListItem Value="1"> 1 </asp:ListItem>
                                                             <asp:ListItem Value="2"> 2 </asp:ListItem>
                                                             <asp:ListItem Value="3"> 3 </asp:ListItem>
