@@ -61,14 +61,21 @@ public class Cart
         }
         
         var updatedItem = new CartItem(productId);
-
+        bool incart=false;
         foreach (var item in GetShopCart())
         {
             if (item.Equals(updatedItem))
             {
-                item.Quantity = quantity;
+                item.Quantity += quantity;
+                incart = true;
                 return;
-            }
+            }            
+        }
+        if (!incart) {
+            AddItem(productId);
+
+            if (quantity > 1)
+                SetItemQuantity(productId, (quantity - 1));
         }
     }
 

@@ -87,7 +87,7 @@
 												    <dt>Quantity: </dt>
 												    <dd>
                                                         <asp:DropDownList ID="drpQuantity" CssClass="form-control form-control-sm" runat="server">
-                                                            <asp:ListItem Selected="True" Value="1"> 1 </asp:ListItem>
+                                                            <asp:ListItem Value="1"> 1 </asp:ListItem>
                                                             <asp:ListItem Value="2"> 2 </asp:ListItem>
                                                             <asp:ListItem Value="3"> 3 </asp:ListItem>
                                                         </asp:DropDownList>
