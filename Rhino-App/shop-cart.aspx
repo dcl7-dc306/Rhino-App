@@ -83,7 +83,7 @@
                                     </td>
                                     <td class="text-right">
                                         <!--<a href="" class="btn btn-outline-danger">× Remove</a>-->
-                                        <asp:Button Text="remove" runat="server" CssClass="btn btn-outline-danger" CommandArgument='<%#Eval("product_id")%>' OnCommand="btnRmvToCart_Click" ></asp:Button>
+                                        <asp:LinkButton Text="remove" runat="server" CssClass="btn btn-outline-danger" CommandArgument='<%#Eval("product_id")%>' OnClick="btnRmvToCart_Click" ></asp:LinkButton>
                                     </td>
                                     </tr>	
 							    </ItemTemplate>

@@ -56,13 +56,13 @@ namespace Rhino_App
             Session.Clear(); // Remove all session
             Response.Redirect("login.aspx"); // Redirect to login page
         }
-        protected void btnAddToCart_Click(object sender, CommandEventArgs e)
+        protected void btnAddToCart_Click(object sender, EventArgs e)
         {
             Cart cart = Cart.GetShoppingCart();  
             int qt = 0;
-            qt =int.Parse(((DropDownList)Repeater1.Items[0].FindControl("drpQuantity")).SelectedItem.Value);
+            qt =int.Parse(((DropDownList)Repeater1.Items[0].FindControl("drpQuantity")).Text);
 
-            cart.SetItemQuantity(int.Parse(e.CommandArgument.ToString()), qt);
+            cart.SetItemQuantity(int.Parse((sender as LinkButton).CommandArgument), qt);
             Response.Redirect("shop-cart.aspx");
         }        
     }

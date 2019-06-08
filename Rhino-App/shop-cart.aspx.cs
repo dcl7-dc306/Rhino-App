@@ -62,10 +62,10 @@ namespace Rhino_App
             }
         }
 
-        protected void btnRmvToCart_Click(object sender, CommandEventArgs e)
+        protected void btnRmvToCart_Click(object sender, EventArgs e)
         {
             var cart = (Cart)Session["cart"];
-            cart.RemoveItem((int)e.CommandArgument);
+            cart.RemoveItem(int.Parse((sender as LinkButton).CommandArgument));
             Response.Redirect("shop-products.aspx");
         }
     }
