@@ -74,7 +74,7 @@ namespace Rhino_App
             Request.ApplicationPath + "shop-products.aspx'", true);
         }
 
-        protected void btnAddToCart_Click(object sender, CommandEventArgs e)
+        protected void btnAddToCart_Click(object sender, EventArgs e)
         {
             Cart cart = Cart.GetShoppingCart();  
             int qt = 0;
