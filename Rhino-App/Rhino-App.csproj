@@ -179,6 +179,24 @@
     <Content Include="plugins\fancybox\fancybox.min.css" />
     <Content Include="plugins\fancybox\fancybox.min.js" />
     <Content Include="plugins\fancybox\index.html" />
+    <Content Include="plugins\jquery-ui\jquery-ui\AUTHORS.txt" />
+    <Content Include="plugins\jquery-ui\jquery-ui\external\jquery\jquery.js" />
+    <Content Include="plugins\jquery-ui\jquery-ui\images\ui-icons_444444_256x240.png" />
+    <Content Include="plugins\jquery-ui\jquery-ui\images\ui-icons_555555_256x240.png" />
+    <Content Include="plugins\jquery-ui\jquery-ui\images\ui-icons_777620_256x240.png" />
+    <Content Include="plugins\jquery-ui\jquery-ui\images\ui-icons_777777_256x240.png" />
+    <Content Include="plugins\jquery-ui\jquery-ui\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="plugins\jquery-ui\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="plugins\jquery-ui\jquery-ui\index.html" />
+    <Content Include="plugins\jquery-ui\jquery-ui\jquery-ui.css" />
+    <Content Include="plugins\jquery-ui\jquery-ui\jquery-ui.js" />
+    <Content Include="plugins\jquery-ui\jquery-ui\jquery-ui.min.css" />
+    <Content Include="plugins\jquery-ui\jquery-ui\jquery-ui.min.js" />
+    <Content Include="plugins\jquery-ui\jquery-ui\jquery-ui.structure.css" />
+    <Content Include="plugins\jquery-ui\jquery-ui\jquery-ui.structure.min.css" />
+    <Content Include="plugins\jquery-ui\jquery-ui\jquery-ui.theme.css" />
+    <Content Include="plugins\jquery-ui\jquery-ui\jquery-ui.theme.min.css" />
+    <Content Include="plugins\jquery-ui\jquery-ui\LICENSE.txt" />
     <Content Include="plugins\owlcarousel\assets\ajax-loader.gif" />
     <Content Include="plugins\owlcarousel\assets\owl.carousel.css" />
     <Content Include="plugins\owlcarousel\assets\owl.carousel.min.css" />
@@ -203,6 +221,7 @@
     <Content Include="shop-cart.aspx" />
     <Content Include="shop-product-item.aspx" />
     <Content Include="shop-products.aspx" />
+    <Content Include="trans-history.aspx" />
     <Content Include="update-product.aspx" />
     <Content Include="Web.config" />
     <Content Include="old-pages\old-index.aspx" />
@@ -337,6 +356,13 @@
     </Compile>
     <Compile Include="shop-products.aspx.designer.cs">
       <DependentUpon>shop-products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="trans-history.aspx.cs">
+      <DependentUpon>trans-history.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trans-history.aspx.designer.cs">
+      <DependentUpon>trans-history.aspx</DependentUpon>
     </Compile>
     <Compile Include="update-product.aspx.cs">
       <DependentUpon>update-product.aspx</DependentUpon>
@@ -503,6 +529,7 @@
     <Content Include="sass\ui.scss" />
     <Content Include="sass\_variables-custom.scss" />
     <Content Include="old-pages\old-Main.Master" />
+    <Content Include="plugins\jquery-ui\jquery-ui\package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
