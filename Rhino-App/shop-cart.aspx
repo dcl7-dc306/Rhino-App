@@ -73,7 +73,7 @@
                                             <div class="img-wrap">
                                                 <img src='<%#Eval("image") %>' class="img-thumbnail img-sm"></div>
                                             <figcaption class="media-body">
-                                                <h6 class="title text-truncate"><%#Eval("name") %></h6>
+                                            <a   href="shop-product-item.aspx?id=<%#Eval("product_id") %>"><h6 class="title text-truncate"><%#Eval("name") %></h6></a>
                                                 <dl class="dlist-inline small">
                                                     <dt>Size: </dt>
                                                     <dd>XXL</dd>
@@ -111,17 +111,17 @@
                 <!-- col.// -->
                 <aside class="col-sm-3">
                     <p class="alert alert-success">You pay using your debit card, credit cards with unionpay and american express.</p>
-                    <dl class="dlist-align">
+                   <!-- <dl class="dlist-align">
                         <dt>Total price: </dt>
                         <dd class="text-right">USD 568</dd>
                     </dl>
                     <dl class="dlist-align">
                         <dt>Discount:</dt>
                         <dd class="text-right">USD 658</dd>
-                    </dl>
+                    </dl>--><!-- discuss if we going to use it now -->
                     <dl class="dlist-align h4">
                         <dt>Total:</dt>
-                        <dd class="text-right"><strong>USD 1,650</strong></dd>
+                        <dd class="text-right"><strong>USD <%=total%></strong></dd>
                     </dl>
                     <hr>
                     <div class="form-group">
@@ -140,7 +140,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                      <asp:LinkButton ID="btnCheckout" CssClass="btn btn-warning btn-block" runat="server">Proceed to Checkout</asp:LinkButton>
+                      <asp:LinkButton ID="btnCheckout" CssClass="btn btn-warning btn-block" OnClick="btnCheckout_Click" runat="server">Proceed to Checkout</asp:LinkButton>
                     </div>
                     <figure class="itemside mb-3">
                         <aside class="aside">

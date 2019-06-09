@@ -12,6 +12,7 @@ namespace Rhino_App
 {
     public partial class shop_cart : System.Web.UI.Page
     {
+        public decimal total;
         private SqlConnection conn;
         private SqlCommand cmd;
         String connStr = WebConfigurationManager.ConnectionStrings["Rhino_DB"].ConnectionString;
@@ -46,7 +47,7 @@ namespace Rhino_App
                         {
                             dr["quantity"] = qt.Quantity;
                             dr["ItemTotal"] = qt.Quantity * (decimal)dr["price"];
-
+                            total += qt.Quantity * (decimal)dr["price"];
                         }
 
 
@@ -75,6 +76,14 @@ namespace Rhino_App
             // After clicking logout
             Session.Clear(); // Remove all session
             Response.Redirect("login.aspx"); // Redirect to login page
+        }
+
+        protected void btnCheckout_Click(object sender, EventArgs e)
+        {
+            var userid = Session["userid"];
+            var cart = (Cart)Session["cart"];
+
+
         }
     }
 }
