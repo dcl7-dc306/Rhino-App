@@ -59,11 +59,7 @@ namespace Rhino_App
                 Repeater1.DataSource = dt;
                 Repeater1.DataBind();
 
-            }
-            else
-            {
-                Response.Write("<script>alert('Product Catalogue: No Products to Show');</script>");
-            }
+            }            
         }
 
         protected void btnRmvToCart_Click(object sender, EventArgs e)
@@ -84,38 +80,44 @@ namespace Rhino_App
         {
             var userid = Session["userid"];
             var cart = (Cart)Session["cart"];
-
-            conn = new SqlConnection(connStr);
-            
-            cmd = new SqlCommand("INSERT INTO  tbl_orders (user_id,create_at,status,total) values (@userid,@createat,@status,@total);SELECT SCOPE_IDENTITY();", conn);
-            
-            cmd.Parameters.AddWithValue("@userid", userid);
-            cmd.Parameters.AddWithValue("@createat", DateTime.Now);
-            cmd.Parameters.AddWithValue("@status", "Pendent");
-            cmd.Parameters.AddWithValue("@total", total);
-            conn.Open();
-            int orderid = Convert.ToInt32(cmd.ExecuteScalar());
-
-            foreach (DataRow dr in dt.Rows) // search whole table
+            if (cart.GetShopCart().Count() > 0)
             {
-                foreach (var item in cart.GetShopCart())
+                conn = new SqlConnection(connStr);
+
+                cmd = new SqlCommand("INSERT INTO  tbl_orders (user_id,create_at,status,total) values (@userid,@createat,@status,@total);SELECT SCOPE_IDENTITY();", conn);
+
+                cmd.Parameters.AddWithValue("@userid", userid);
+                cmd.Parameters.AddWithValue("@createat", DateTime.Now);
+                cmd.Parameters.AddWithValue("@status", "Pendent");
+                cmd.Parameters.AddWithValue("@total", total);
+                conn.Open();
+                int orderid = Convert.ToInt32(cmd.ExecuteScalar());
+
+                foreach (DataRow dr in dt.Rows) // search whole table
                 {
-                    if (item.Id_Prod == (int)dr["product_id"])
+                    foreach (var item in cart.GetShopCart())
                     {
-                        decimal subtotal = (item.Quantity * (decimal)dr["price"]);
+                        if (item.Id_Prod == (int)dr["product_id"])
+                        {
+                            decimal subtotal = (item.Quantity * (decimal)dr["price"]);
 
-                      cmd = new SqlCommand("INSERT INTO  tbl_order_items (order_id,product_id,quantity,total_price) values (" + orderid + "," + item.Id_Prod + "," + item.Quantity + ","+ subtotal +");", conn);
-                      cmd.ExecuteNonQuery();
+                            cmd = new SqlCommand("INSERT INTO  tbl_order_items (order_id,product_id,quantity,total_price) values (" + orderid + "," + item.Id_Prod + "," + item.Quantity + "," + subtotal + ");", conn);
+                            cmd.ExecuteNonQuery();
+                        }
+
+
                     }
-
-
                 }
+
+                Session.Remove("cart");
+                //cmd.ExecuteNonQuery();
+                conn.Close();
+                Response.Redirect("shop-products.aspx");
             }
+            else {
 
-
-            //cmd.ExecuteNonQuery();
-            conn.Close();
-            Response.Redirect("shop-products.aspx");
+                Response.Write("<script>alert('Product Cart: No Products to Checkout');</script>");
+            }
         }
     }
 }
