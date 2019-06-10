@@ -52,7 +52,10 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
     <div class="rhino-forms bg u-padding-top-medium">
     <div class="container">
+        <%--// ADMIN VIEW --%>
+       <asp:Panel runat="server" ID="AdminPanel" Visible="true">
         <div class="row">
+             
             <div class="col-4 jumbotron">
                 <h1 class="u-margin-bottom-medium">Search Transaction</h1>
                 <div class="form-group form-row">
@@ -70,10 +73,10 @@
                         <asp:Label ID="lblCustomerName" runat="server" Text="Customer Username:" AssociatedControlID="txtCustomerName"></asp:Label>
                         <asp:TextBox ID="txtCustomerName" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
-                    <!--<div class="col">
+                    <div class="col">
                         <asp:Label ID="lblProdName" runat="server" Text="Product Name:" AssociatedControlID="txtProdName"></asp:Label>
                         <asp:TextBox ID="txtProdName" CssClass="form-control" runat="server"></asp:TextBox>
-                    </div>-->
+                    </div>
                 </div>
                 <div class="form-group">
                     <asp:Label ID="lblProdPrice" runat="server" Text="Price" AssociatedControlID="txtPrice"></asp:Label>
@@ -95,10 +98,9 @@
                     <asp:Button ID="btnSearch" CssClass="ml-auto btn btn-block btn-warning" OnClick="btnSearch_Click" runat="server" Text="Search" />
                 </div>
 
-            </div>
-            
-            <%-- Table here --%>
+            </div>                         
             <div class="col-8">
+                
                 <asp:Panel runat="server" ID="Orders_tb" Visible="true">
                 <table class="table">
                     <thead>
@@ -111,8 +113,7 @@
                         <th>Total</th>
                         <th></th>
                     </tr>
-                    </thead>
-                    <%-- Use repeater here --%>
+                    </thead>                    
                     <tbody>
 							<asp:Repeater ID="RepeaterOrders" runat="server">
 							<ItemTemplate>
@@ -130,7 +131,7 @@
                                         <p><%#String.Format("{0:dd/MM/yyyy}",Eval("create_at")) %></p>
                                     </td>
                                     <td>
-                                        <p><%#String.Format("{0:dd/MM/yyyy}",Eval("status")) %></p>
+                                        <p><%#Eval("status") %></p>
                                     </td>
                                     <td>                                        
                                         <p>NZ$<%#String.Format("{0:n2}",Eval("total")) %></p>                                                                                   
@@ -142,52 +143,161 @@
                                 </tr>	
 							    </ItemTemplate>
 							    </asp:Repeater>								
-                            </tbody>
-                    <%-- //Use repeater here --%>
+                            </tbody>  
+                    <tfoot>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>TOTAL:</td>
+                                <td>NZ$<%=SumTotal%></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
                 </table>
-
                 </asp:Panel>
+
                 <asp:Panel runat="server" ID="Itens_tb" Visible="false">
 
                     <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Order Id</th>
+                                <th>Product Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>SubTotal</th>
+                                <th>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-warning rhino-card-add-button" OnClick="btnBack_Click">Back</asp:LinkButton>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <asp:Repeater ID="RepeaterItens" runat="server">
+                                <ItemTemplate>
+                                    <tr>
+                                        <td>
+                                            <p><%#Eval("order_id") %></p>
+                                        </td>
+                                        <td>
+                                            <p><%#Eval("name") %></p>
+                                        </td>
+                                        <td>
+                                            <p><%#Eval("quantity") %></p>
+                                        </td>
+                                        <td>
+                                            <p>NZ$<%#(Convert.ToDecimal(Eval("total_price"))/Convert.ToInt64(Eval("quantity"))) %></p>
+                                        </td>
+                                        <td>
+                                            <p>NZ$<%#String.Format("{0:n2}",Eval("total_price")) %></p>
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>TOTAL:</td>
+                                <td>NZ$<%=SumTotal%></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </asp:Panel>
+                               
+            </div>
+        </div>
+        </asp:Panel>
+        <%--//END ADMIN VIEW --%>
+        <%--//Client VIEW --%>
+       <asp:Panel runat="server" ID="CLientOrders" Visible="false">
+                <table class="table">
                     <thead>
+                    <tr>
+                        <th>Order Id</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                    </thead>                    
+                    <tbody>
+							<asp:Repeater ID="RepeaterClientOrders" runat="server">
+							<ItemTemplate>
+                                <tr>							
+                                    <td>
+                                       <p><%#Eval("order_id") %></p>
+                                    </td>                                   
+                                    <td>
+                                        <p><%#String.Format("{0:dd/MM/yyyy}",Eval("create_at")) %></p>
+                                    </td>
+                                    <td>
+                                        <p><%#Eval("status") %></p>
+                                    </td>
+                                    <td>                                        
+                                        <p>NZ$<%#String.Format("{0:n2}",Eval("total")) %></p>                                                                                   
+                                    </td> 
+                                    <td>                                        
+                                        <asp:LinkButton ID="btnDetailsClient" runat="server" CssClass="btn btn-warning rhino-card-add-button" CommandArgument='<%#Eval("order_id")%>' OnClick="btnDetailsClient_Click" >Details</asp:LinkButton>                                                                              
+                                    </td>                                    
+                                </tr>	
+							    </ItemTemplate>
+							    </asp:Repeater>								
+                            </tbody>                    
+                </table>
+                </asp:Panel>
+        <asp:Panel runat="server" ID="ClientItems" Visible="false">
+            <table class="table">
+                <thead>
                     <tr>
                         <th>Order Id</th>
                         <th>Product Name</th>
                         <th>Quantity</th>
                         <th>Price</th>
-                        <th>SubTotal</th>                                                
+                        <th>SubTotal</th>
+                        <th>
+                            <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-warning rhino-card-add-button" OnClick="btnBack_Click">Back</asp:LinkButton>
+                        </th>
                     </tr>
-                    </thead>
-                    <%-- Use repeater here --%>
-                    <tbody>
-						<asp:Repeater ID="RepeaterItens" runat="server">
-							<ItemTemplate>
-                                <tr>							
-                                    <td>
-                                       <p><%#Eval("order_id") %></p>
-                                    </td>
-                                    <td>
-                                        <p><%#Eval("name") %></p>
-                                    </td>
-                                    <td>
-                                        <p><%#Eval("quantity") %></p>
-                                    </td> 
-                                    <td>
-                                        <p><%#(Convert.ToDecimal(Eval("total_price"))/Convert.ToInt64(Eval("quantity"))) %></p>
-                                    </td> 
-                                    <td>                                        
-                                        <p>NZ$<%#String.Format("{0:n2}",Eval("total_price")) %></p>                                                                                   
-                                    </td>                                    
-                                </tr>	
-							    </ItemTemplate>
-							    </asp:Repeater>							
-                            </tbody>
-                    <%-- //Use repeater here --%>
-                </table>
-                </asp:Panel>
-            </div>
-        </div>
+                </thead>
+                <tbody>
+                    <asp:Repeater ID="RepeaterItensClient" runat="server">
+                        <ItemTemplate>                            
+                            <tr>
+                                <td>
+                                    <p><%#Eval("order_id") %></p>
+                                </td>
+                                <td>
+                                    <p><%#Eval("name") %></p>
+                                </td>
+                                <td>
+                                    <p><%#Eval("quantity") %></p>
+                                </td>
+                                <td>
+                                    <p>NZ$<%#(Convert.ToDecimal(Eval("total_price"))/Convert.ToInt64(Eval("quantity"))) %></p>
+                                </td>
+                                <td>
+                                    <p>NZ$<%#String.Format("{0:n2}",Eval("total_price")) %></p>
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>TOTAL:</td>
+                        <td>NZ$<%=SumTotal%></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </asp:Panel>
+        <%--//END Client VIEW --%>
     </div>
     </div>
 </asp:Content>
