@@ -90,8 +90,8 @@
                                     </td>
                                     <td>
                                         <div class="price-wrap">
-                                            <var class="price">NZ$ <%#Eval("ItemTotal") %></var>
-                                            <small class="text-muted">(NZ$ <%#Eval("price") %> each)</small>
+                                            <var class="price">NZ$ <%#String.Format("{0:n2}",Eval("ItemTotal")) %></var>
+                                            <small class="text-muted">(NZ$ <%#String.Format("{0:n2}", Eval("price"))%> each)</small>
                                         </div>
                                         <!-- price-wrap .// -->
                                     </td>
@@ -121,7 +121,7 @@
                     </dl>--><!-- discuss if we going to use it now -->
                     <dl class="dlist-align h4">
                         <dt>Total:</dt>
-                        <dd class="text-right"><strong>USD <%=total%></strong></dd>
+                        <dd class="text-right"><strong>USD <%=String.Format("{0:n2}",total) %></strong></dd>
                     </dl>
                     <hr>
                     <div class="form-group">

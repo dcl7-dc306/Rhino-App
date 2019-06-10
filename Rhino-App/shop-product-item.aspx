@@ -81,7 +81,7 @@
 
 									    <div class="mb-3">
 										    <var class="price h3 text-warning">
-											    <span class="currency">NZ $</span><span class="num"><%#Eval("price") %></span>
+											    <span class="currency">NZ $</span><span class="num"><%#String.Format("{0:n2}", Eval("price"))%></span>
 										    </var>
 									    </div>
 									    <!-- price-detail-wrap .// -->

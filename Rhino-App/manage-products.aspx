@@ -111,7 +111,7 @@
 				        <figcaption class="info-wrap">
 					        <a href='update-product-item.aspx?id=<%#Eval("product_id") %>' class="title"><%#Eval("name") %></a>
 					        <div class="price-wrap">
-						        <span class="price-new">NZ$ <%#Eval("price") %></span>
+						        <span class="price-new">NZ$ <%#String.Format("{0:n2}", Eval("price")) %></span>
 						        <%--<del class="price-old">$1980</del>--%>
                                 <a href="update-product.aspx?id=<%#Eval("product_id") %>" class="btn btn-warning rhino-card-update-button">Update Product</a>
                                 <asp:LinkButton ID="btnDelete" runat="server" CssClass="btn btn-outline-danger rhino-card-delete-button" CommandArgument='<%#Eval("product_id") %>' OnClick="btnDelete_Click" OnClientClick="return confirm('Are you sure you wish to DELETE this product?');">Delete</asp:LinkButton>
