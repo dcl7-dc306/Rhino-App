@@ -113,11 +113,11 @@
 
 	<%--======================= PRODUCTS SECTION ============================--%>
 
-	<section class="section-content bg padding-y-sm u-padding-top-big" >
+	<section class="section-content bg padding-y-sm u-padding-top-medium" >
 		<div class="container">
 
             <div class="u-margin-bottom-medium">
-				<h1>Our Selection Of Products</h1>
+				<h1>Our Products</h1>
 			</div>
             <div class="row">
              <asp:Repeater ID="Repeater1" runat="server">
