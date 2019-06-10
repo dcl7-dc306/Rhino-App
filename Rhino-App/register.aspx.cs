@@ -52,9 +52,9 @@ namespace Rhino_App
 
             string existuser = Convert.ToString(checkercmd.ExecuteScalar());
 
-            if (txtFirst.Text == "" || txtEmail.Text == "" || txtLast.Text == "" || txtUser.Text == "" || calBirth.Text == "")
+            if (txtFirst.Text == "" || txtEmail.Text == "" || txtLast.Text == "" || txtUser.Text == "" || calBirth.Text == "" || txtConfirmPass.Text == "" || txtPass.Text == "")
             {
-                Response.Write("<script>alert('Failed: First Name, Last Name, Email, Username - cannot be blank');</script>");
+                Response.Write("<script>alert('Failed: First Name, Last Name, Email, Username, Password, Confirm Password - cannot be blank');</script>");
             }
             else if ( txtPass.Text != txtConfirmPass.Text) // Validation for Password and Confirm Password
             {

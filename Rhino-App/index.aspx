@@ -1,6 +1,43 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Rhino_App.index" %>
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
 	<title>Home</title>
+    <style>
+        .rhino-card {
+            overflow:hidden;
+        }
+
+        .rhino-card-add-button {
+            -webkit-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -ms-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            position: absolute;
+            right: -117px;
+            bottom: 20px;
+        }
+
+        .rhino-card-view-button{
+            -webkit-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -ms-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            position: absolute;
+            top: 34%;
+            left: 50px;
+            right: 50px;
+            opacity: 0;
+        }
+
+        .rhino-card:hover .rhino-card-add-button{
+            right: 15px;
+        }
+        
+        .rhino-card:hover .rhino-card-view-button{
+            opacity: 1;
+        }
+    </style>
 </asp:Content>
 
  <%-- Call navigation classes here --%>
@@ -78,6 +115,31 @@
 
 	<section class="section-content bg padding-y-sm u-padding-top-big" >
 		<div class="container">
+            <div class="row">
+             <asp:Repeater ID="Repeater1" runat="server">
+                <ItemTemplate>
+                <a href='shop-product-item.aspx?id=<%#Eval("product_id") %>'>
+                <div class="col-md-3 col-sm-6">
+			        <figure class="card card-product card--animated rhino-card">
+				        <div class="img-wrap">
+					        <img src='<%#Eval("image") %>'>
+				        </div>
+				        <figcaption class="info-wrap">
+					        <a href='shop-product-item.aspx?id=<%#Eval("product_id") %>' class="title"><%#Eval("name") %></a>
+					        <div class="price-wrap">
+						        <span class="price-new">NZ$ <%#Eval("price") %></span>
+						        <%--<del class="price-old">$1980</del>--%>
+                                <a href="shop-product-item.aspx?id=<%#Eval("product_id") %>" class="btn btn-warning rhino-card-view-button"> View Product Details</a>
+                                <asp:LinkButton ID="btnAddToCart" runat="server" CssClass="btn btn-warning rhino-card-add-button" CommandArgument='<%#Eval("product_id")%>' OnCommand="btnAddToCart_Command" OnClientClick="return confirm('ADD TO CART this product?');">Add To Cart</asp:LinkButton>
+					        </div><!-- price-wrap.// -->
+				        </figcaption>
+			        </figure><!-- card // -->
+		        </div><!-- col // -->
+                </a>
+                </ItemTemplate>
+            </asp:Repeater>
+            </div>
+
 			<%--<div class="card">
 				<div class="card-body">
 					<div class="row">

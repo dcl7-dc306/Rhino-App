@@ -55,7 +55,7 @@
                 <asp:TextBox ID="txtPass" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
             </div>
             <div class="form-group">
-                <%--<a class="user-form__forgot-password" href="#">I forgot my password</a>--%>
+                <a class="user-form__forgot-password" href="forgot-password.aspx">I forgot my password</a>
             </div>
             <div class="form-group">
                 <asp:Button ID="btnLogin" CssClass="btn btn-block btn-warning" runat="server" Text="Login" OnClick="btnLogin_Click" />
