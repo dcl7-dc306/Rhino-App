@@ -99,25 +99,93 @@
             
             <%-- Table here --%>
             <div class="col-8">
+                <asp:Panel runat="server" ID="Orders_tb" Visible="true">
                 <table class="table">
                     <thead>
                     <tr>
                         <th>Order Id</th>
                         <th>Customer Id</th>
                         <th>Customer Name</th>
-                        <th>Product Name</th>
-                        <th>Price</th>
-                        <th>Transaction From:</th>
-                        <th>Transaction To:</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Total</th>
+                        <th></th>
                     </tr>
                     </thead>
-
                     <%-- Use repeater here --%>
-                    <tr>
-                        <td></td>
-                    </tr>
+                    <tbody>
+							<asp:Repeater ID="RepeaterOrders" runat="server">
+							<ItemTemplate>
+                                <tr>							
+                                    <td>
+                                       <p><%#Eval("order_id") %></p>
+                                    </td>
+                                    <td>
+                                        <p><%#Eval("user_id") %></p>
+                                    </td>
+                                    <td>
+                                        <p><%#Eval("username") %></p>
+                                    </td>
+                                    <td>
+                                        <p><%#String.Format("{0:dd/MM/yyyy}",Eval("create_at")) %></p>
+                                    </td>
+                                    <td>
+                                        <p><%#String.Format("{0:dd/MM/yyyy}",Eval("status")) %></p>
+                                    </td>
+                                    <td>                                        
+                                        <p>NZ$<%#String.Format("{0:n2}",Eval("total")) %></p>                                                                                   
+                                    </td> 
+                                    <td>                                        
+                                        <asp:LinkButton ID="btnDetails" runat="server" CssClass="btn btn-warning rhino-card-add-button" CommandArgument='<%#Eval("order_id")%>' OnClick="btnDetails_Click" >Details</asp:LinkButton>                                                                              
+                                    </td>                                    
+
+                                </tr>	
+							    </ItemTemplate>
+							    </asp:Repeater>								
+                            </tbody>
                     <%-- //Use repeater here --%>
                 </table>
+
+                </asp:Panel>
+                <asp:Panel runat="server" ID="Itens_tb" Visible="false">
+
+                    <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Order Id</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>SubTotal</th>                                                
+                    </tr>
+                    </thead>
+                    <%-- Use repeater here --%>
+                    <tbody>
+						<asp:Repeater ID="RepeaterItens" runat="server">
+							<ItemTemplate>
+                                <tr>							
+                                    <td>
+                                       <p><%#Eval("order_id") %></p>
+                                    </td>
+                                    <td>
+                                        <p><%#Eval("name") %></p>
+                                    </td>
+                                    <td>
+                                        <p><%#Eval("quantity") %></p>
+                                    </td> 
+                                    <td>
+                                        <p><%#(Convert.ToDecimal(Eval("total_price"))/Convert.ToInt64(Eval("quantity"))) %></p>
+                                    </td> 
+                                    <td>                                        
+                                        <p>NZ$<%#String.Format("{0:n2}",Eval("total_price")) %></p>                                                                                   
+                                    </td>                                    
+                                </tr>	
+							    </ItemTemplate>
+							    </asp:Repeater>							
+                            </tbody>
+                    <%-- //Use repeater here --%>
+                </table>
+                </asp:Panel>
             </div>
         </div>
     </div>
