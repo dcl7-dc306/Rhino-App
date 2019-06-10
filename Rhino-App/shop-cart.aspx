@@ -90,7 +90,7 @@
                                     </td>
                                     <td>
                                         <div class="price-wrap">
-                                            <var class="price">NZ$ <%#String.Format("{0:n2}",Eval("ItemTotal")) %></var>
+                                            <var class="price">NZ$<%#String.Format("{0:n2}",Eval("ItemTotal")) %></var>
                                             <small class="text-muted">(NZ$ <%#String.Format("{0:n2}", Eval("price"))%> each)</small>
                                         </div>
                                         <!-- price-wrap .// -->

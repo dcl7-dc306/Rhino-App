@@ -40,7 +40,11 @@ namespace Rhino_App
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
                 dt.Columns.Add("quantity");
-                dt.Columns.Add("ItemTotal");
+
+                DataColumn itemTotal = new DataColumn("ItemTotal");
+                itemTotal.DataType = System.Type.GetType("System.Decimal");
+
+                dt.Columns.Add(itemTotal);                
                 foreach (DataRow dr in dt.Rows) // search whole table
                 {
                     foreach (var qt in cart.GetShopCart())
