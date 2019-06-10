@@ -69,6 +69,8 @@
   <ItemGroup>
     <Content Include="add-product.aspx" />
     <Content Include="css\jquery-ui.css" />
+    <Content Include="email-templates\forgot-pass.html" />
+    <Content Include="forgot-password.aspx" />
     <Content Include="images\favicon\android-icon-144x144.png" />
     <Content Include="images\favicon\android-icon-192x192.png" />
     <Content Include="images\favicon\android-icon-36x36.png" />
@@ -241,6 +243,13 @@
     </Compile>
     <Compile Include="App_Code\Cart.cs" />
     <Compile Include="App_Code\CartItem.cs" />
+    <Compile Include="forgot-password.aspx.cs">
+      <DependentUpon>forgot-password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forgot-password.aspx.designer.cs">
+      <DependentUpon>forgot-password.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

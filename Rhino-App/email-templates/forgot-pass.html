@@ -58,6 +58,8 @@
 
     .container .content.footer a:hover { text-decoration: underline; }
 
+    .password-recovery { background: #ebebeb; min-width: 75%; padding: 20px;  border-radius: 9px; }
+
     </style>
 </head>
 <body>
@@ -79,18 +81,18 @@
 
                         <h2>Hi {fname},</h2>
 
-                        <p>Your Rhino Account has been created!</p>
+                        <p>You notified us that you forgot your password</p>
 
-                        <p>From now on, please remember your login details using your username and password.</p>
+                        <p>Here's your password below. please don't share it to anybody</p>
 
-                        <p>For more information, Please click the button below:</p>
+                        <center><h3 class="password-recovery">{pass}</h3></center>
 
                         <table>
                             <tr>
                                 <td align="center">
                                     <p>
                                         <!-- Rename the domain if you host this to cloud -->
-                                        <a href="http://localhost:55858/index.aspx" class="button">Go Visit Out Our Store</a>
+                                        <a href="http://localhost:55858/login.aspx" class="button">Go to Login Page</a>
                                     </p>
                                 </td>
                             </tr>
