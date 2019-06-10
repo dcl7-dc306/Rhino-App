@@ -19,6 +19,7 @@ namespace Rhino_App
         string firstname;
         string username;
         string admin;
+        int userid;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -58,6 +59,7 @@ namespace Rhino_App
                         firstname = reader["firstname"].ToString();
                         username = reader["username"].ToString();
                         admin = reader["admin"].ToString();
+                        userid = (int)reader["user_id"];
                     }
 
                     if (admin == "1") // admin = "1"
@@ -66,6 +68,7 @@ namespace Rhino_App
                         Session["first"] = firstname;
                         Session["user"] = username;
                         Session["admin"] = admin;
+                        Session["userid"] = userid;
 
                         // Redirect to Product Management
                         Response.Redirect("manage-products.aspx");
@@ -77,7 +80,8 @@ namespace Rhino_App
                         Session["first"] = firstname;
                         Session["user"] = username;
                         Session["admin"] = admin;
-                         //creating cart
+                        Session["userid"] = userid;
+                        //creating cart
 
                         // Redirect to Product Catalogue
                         Response.Redirect("shop-products.aspx");

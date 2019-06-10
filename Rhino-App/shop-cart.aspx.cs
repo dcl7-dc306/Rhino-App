@@ -12,14 +12,17 @@ namespace Rhino_App
 {
     public partial class shop_cart : System.Web.UI.Page
     {
+        public decimal total;
+        DataTable dt;
         private SqlConnection conn;
         private SqlCommand cmd;
         String connStr = WebConfigurationManager.ConnectionStrings["Rhino_DB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Cart initcart = Cart.GetShoppingCart();
             var id = "";
             var cart = (Cart)Session["cart"];
+            
             foreach (var item in cart.GetShopCart())
             {
                 id += item.Id_Prod + ",";
@@ -33,7 +36,7 @@ namespace Rhino_App
                 conn.Open();
                 cmd = new SqlCommand("SELECT * FROM tbl_products where product_id in (" + id + ")", conn);
                 cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
+                dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
                 dt.Columns.Add("quantity");
@@ -46,7 +49,7 @@ namespace Rhino_App
                         {
                             dr["quantity"] = qt.Quantity;
                             dr["ItemTotal"] = qt.Quantity * (decimal)dr["price"];
-
+                            total += qt.Quantity * (decimal)dr["price"];
                         }
 
 
@@ -75,6 +78,44 @@ namespace Rhino_App
             // After clicking logout
             Session.Clear(); // Remove all session
             Response.Redirect("login.aspx"); // Redirect to login page
+        }
+
+        protected void btnCheckout_Click(object sender, EventArgs e)
+        {
+            var userid = Session["userid"];
+            var cart = (Cart)Session["cart"];
+
+            conn = new SqlConnection(connStr);
+            
+            cmd = new SqlCommand("INSERT INTO  tbl_orders (user_id,create_at,status,total) values (@userid,@createat,@status,@total);SELECT SCOPE_IDENTITY();", conn);
+            
+            cmd.Parameters.AddWithValue("@userid", userid);
+            cmd.Parameters.AddWithValue("@createat", DateTime.Now);
+            cmd.Parameters.AddWithValue("@status", "Pendent");
+            cmd.Parameters.AddWithValue("@total", total);
+            conn.Open();
+            int orderid = Convert.ToInt32(cmd.ExecuteScalar());
+
+            foreach (DataRow dr in dt.Rows) // search whole table
+            {
+                foreach (var item in cart.GetShopCart())
+                {
+                    if (item.Id_Prod == (int)dr["product_id"])
+                    {
+                        decimal subtotal = (item.Quantity * (decimal)dr["price"]);
+
+                      cmd = new SqlCommand("INSERT INTO  tbl_order_items (order_id,product_id,quantity,total_price) values (" + orderid + "," + item.Id_Prod + "," + item.Quantity + ","+ subtotal +");", conn);
+                      cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+            }
+
+
+            //cmd.ExecuteNonQuery();
+            conn.Close();
+            Response.Redirect("shop-products.aspx");
         }
     }
 }
