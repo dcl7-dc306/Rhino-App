@@ -4,6 +4,19 @@
         .navbar{
             background: #343a40;
         }
+
+        .center-image {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 
 </asp:Content>
@@ -53,7 +66,7 @@
 					<main class="card">
 						<div class="row no-gutters">
 							<aside class="col-sm-6 border-right">
-								<article class="gallery-wrap">
+								<article class="gallery-wrap center-image">
 									<div class="img-big-wrap">
 										<div>
 											<a href='<%=lblStatusImage.Text %>' data-fancybox="">
