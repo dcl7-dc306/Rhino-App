@@ -124,6 +124,7 @@
                         <dd class="text-right"><strong>USD <%=String.Format("{0:n2}",total) %></strong></dd>
                     </dl>
                     <hr>
+                    <% if (Session["user"] != null) {%>
                     <div class="form-group">
                         <asp:Label ID="lblCreditCart" runat="server" Text="Credit Card No." AssociatedControlID="txtCreditCard"></asp:Label>
                         <asp:TextBox ID="txtCreditCard" CssClass="form-control" runat="server"></asp:TextBox>
@@ -140,8 +141,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                      <asp:LinkButton ID="btnCheckout" CssClass="btn btn-warning btn-block" OnClick="btnCheckout_Click" runat="server">Proceed to Checkout</asp:LinkButton>
+                      <asp:LinkButton ID="btnCheckout" CssClass="btn btn-warning btn-block" OnClick="btnCheckout_Click" runat="server">Checkout</asp:LinkButton>
                     </div>
+                    <% } else {%>
+                        <div class="form-group">
+                          <a href="login.aspx" class="btn btn-block btn-warning"><i class="fa fa-user"></i> &nbsp; Login to Proceed Checkout</a>
+                        </div>
+                    <% }%>
+
+
                     <figure class="itemside mb-3">
                         <aside class="aside">
                             <img src="images/icons/pay-visa.png"></aside>
