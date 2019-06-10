@@ -67,13 +67,13 @@
                 </div>
                 <div class="form-group form-row">
                     <div class="col">
-                        <asp:Label ID="lblCustomerName" runat="server" Text="Customer Name:" AssociatedControlID="txtCustomerName"></asp:Label>
+                        <asp:Label ID="lblCustomerName" runat="server" Text="Customer Username:" AssociatedControlID="txtCustomerName"></asp:Label>
                         <asp:TextBox ID="txtCustomerName" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
-                    <div class="col">
+                    <!--<div class="col">
                         <asp:Label ID="lblProdName" runat="server" Text="Product Name:" AssociatedControlID="txtProdName"></asp:Label>
                         <asp:TextBox ID="txtProdName" CssClass="form-control" runat="server"></asp:TextBox>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="form-group">
                     <asp:Label ID="lblProdPrice" runat="server" Text="Price" AssociatedControlID="txtPrice"></asp:Label>
@@ -92,7 +92,7 @@
                 </div>
                 <hr />
                 <div class="form-group">
-                    <asp:Button ID="btnSearch" CssClass="ml-auto btn btn-block btn-warning" runat="server" Text="Search" />
+                    <asp:Button ID="btnSearch" CssClass="ml-auto btn btn-block btn-warning" OnClick="btnSearch_Click" runat="server" Text="Search" />
                 </div>
 
             </div>

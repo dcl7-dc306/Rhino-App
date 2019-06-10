@@ -67,5 +67,30 @@ namespace Rhino_App
             RepeaterItens.DataSource = dt;
             RepeaterItens.DataBind();
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            Orders_tb.Visible = true;
+            Itens_tb.Visible = false;
+            conn = new SqlConnection(connStr);
+            conn.Open();
+            // search anything by product name
+                string qry = $"SELECT tbl_orders.*,tbl_users.username FROM tbl_orders INNER JOIN tbl_users ON tbl_orders.user_id = tbl_users.user_id WHERE order_id LIKE '%{txtOrderId.Text}%' AND tbl_orders.user_id LIKE '%{txtCustomerId.Text}%' AND tbl_orders.total LIKE '%{txtPrice.Text}%' AND tbl_users.username LIKE '%{txtCustomerName.Text}%' AND tbl_orders.create_at BETWEEN '{txtFrom.Text}' AND '{txtTo.Text}' COLLATE SQL_Latin1_General_CP1_CI_AS";
+            SqlDataAdapter da = new SqlDataAdapter(qry, conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);           
+            if (dt.Rows.Count > 0)
+            {
+                RepeaterOrders.DataSource = dt;
+                RepeaterOrders.DataBind();
+            }
+            else
+            {
+                RepeaterOrders.DataSource = dt;
+                RepeaterOrders.DataBind();
+                Response.Write("<script>alert('Search Orders: No Orders to Show');</script>");
+            }
+            conn.Close();
+        }
     }
 }
