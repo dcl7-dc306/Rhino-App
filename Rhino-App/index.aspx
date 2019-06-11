@@ -44,48 +44,51 @@
 <%--<asp:Content ID="navClass" ContentPlaceHolderID="navClass" runat="server">navbar navbar-landing navbar-expand-lg navbar-dark bg-dark</asp:Content>--%>
 
 <asp:Content ID="navigation" ContentPlaceHolderID="navigation" runat="server">
-	<%-- Navigation list here --%>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1">
-	<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbar1">
-					   
-	<ul class="navbar-nav ml-auto">
-		<li class="nav-item">
-			<a class="nav-link page-scroll active" href="index.aspx">Home</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link page-scroll" href="shop-products.aspx"><i class="fas fa-shopping-bag icon--small"></i> Product Catalogue</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link page-scroll" href="shop-cart.aspx"><i class="fas fa-shopping-cart icon--small"></i> Check Cart</a>
-		</li>
-		<% if (Session["user"] == null)
-			{%>
-		<li class="nav-item">
-			<a class="nav-link page-scroll" href="register.aspx">
-				<i class="fas fa- icon--small <%--icon--medium--cta--%>"></i> Create an Account 
-			</a>
-		</li>
-		<li class="nav-item">
-			<a class="btn btn-warning" href="login.aspx">
-				<i class="fas fa-user icon--small <%--icon--medium--cta--%>"></i> Login 
-			</a>
-		</li>
-		<% } else { %>
-		<li class="nav-item">
-		   <div class="rhino-user">
-				<i class="fa fa-user-circle"></i> Hello, <asp:Label ID="lblUser" runat="server" Text=""></asp:Label>
-		   </div>
-		</li>
-		<li class="nav-item">
-		   <asp:Button runat="server" ID="btnLogout" CssClass="btn btn-warning" Text="Logout" OnClick="btnLogout_Click" />
-		</li>
-		<%} %>
+    <%-- Navigation list here --%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar1">
+                       
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link page-scroll active" href="index.aspx">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link page-scroll" href="shop-products.aspx"><i class="fas fa-shopping-bag icon--small"></i> Product Catalogue</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link page-scroll" href="shop-cart.aspx"><i class="fas fa-shopping-cart icon--small"></i> Check Cart</a>
+        </li>
+        <% if (Session["user"] == null)
+            {%>
+        <li class="nav-item">
+            <a class="nav-link page-scroll" href="register.aspx">
+                <i class="fas fa- icon--small <%--icon--medium--cta--%>"></i> Create an Account 
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-warning" href="login.aspx">
+                <i class="fas fa-user icon--small <%--icon--medium--cta--%>"></i> Login 
+            </a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+            <a class="nav-link page-scroll" href="trans-history.aspx"><i class="fas fa-history icon--small"></i> Transaction History</a>
+        </li>
+        <li class="nav-item">
+           <div class="rhino-user">
+                <i class="fa fa-user-circle"></i> Hello, <asp:Label ID="lblUser" runat="server" Text=""></asp:Label>
+           </div>
+        </li>
+        <li class="nav-item">
+           <asp:Button runat="server" ID="btnLogout" CssClass="btn btn-warning" Text="Logout" OnClick="btnLogout_Click" />
+        </li>
+        <%} %>
 
-	</ul>
-	</div>
-	<%--// Navigation list here --%>
+    </ul>
+    </div>
+    <%--// Navigation list here --%>
 </asp:Content>
 
 

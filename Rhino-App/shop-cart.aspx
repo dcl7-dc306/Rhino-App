@@ -13,10 +13,10 @@
             <a class="nav-link page-scroll" href="index.aspx">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link page-scroll active" href="shop-products.aspx"><i class="fas fa-shopping-bag icon--small"></i> Product Catalogue</a>
+            <a class="nav-link page-scroll" href="shop-products.aspx"><i class="fas fa-shopping-bag icon--small"></i> Product Catalogue</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link page-scroll" href="shop-cart.aspx"><i class="fas fa-shopping-cart icon--small"></i> Check Cart</a>
+            <a class="nav-link page-scroll active" href="shop-cart.aspx"><i class="fas fa-shopping-cart icon--small"></i> Check Cart</a>
         </li>
         <% if (Session["user"] == null){%>
         <li class="nav-item">
@@ -30,6 +30,9 @@
             </a>
         </li>
         <% } else { %>
+        <li class="nav-item">
+            <a class="nav-link page-scroll" href="trans-history.aspx"><i class="fas fa-history icon--small"></i> Transaction History</a>
+        </li>
         <li class="nav-item">
            <div class="rhino-user">
                 <i class="fa fa-user-circle"></i> Hello, <asp:Label ID="lblUser" runat="server" Text=""></asp:Label>
@@ -90,7 +93,7 @@
                                     </td>
                                     <td>
                                         <div class="price-wrap">
-                                            <var class="price">NZ$ <%#String.Format("{0:n2}",Eval("ItemTotal")) %></var>
+                                            <var class="price">NZ$<%#String.Format("{0:n2}",Eval("ItemTotal")) %></var>
                                             <small class="text-muted">(NZ$ <%#String.Format("{0:n2}", Eval("price"))%> each)</small>
                                         </div>
                                         <!-- price-wrap .// -->
