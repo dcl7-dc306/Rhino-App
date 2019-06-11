@@ -127,21 +127,21 @@
                     <% if (Session["user"] != null) {%>
                     <div class="form-group">
                         <asp:Label ID="lblCreditCart" runat="server" Text="Credit Card No." AssociatedControlID="txtCreditCard"></asp:Label>
-                        <asp:TextBox ID="txtCreditCard" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ClientIDMode="static" placeholder="XXXX-XXXX-XXXX-XXXX" ID="txtCreditCard" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="form-group form-row">
                        <div class="col-6">
                            <asp:Label ID="lblExpiration"  runat="server" Text="Expiration" AssociatedControlID="txtExpiration"></asp:Label>
-                           <asp:TextBox ID="txtExpiration" CssClass="form-control rhino-expiration" runat="server"></asp:TextBox>
+                           <asp:TextBox ClientIDMode="static" ID="txtExpiration" CssClass="form-control rhino-expiration" runat="server" placeHolder="MM/YYYY"></asp:TextBox>
                         </div>
                         <div class="col-6">
                            <asp:Label ID="lblCVC"  runat="server" Text="CVC" AssociatedControlID="txtCVC"></asp:Label>
-                           <asp:TextBox ID="txtCVC" CssClass="form-control rhino-expiration" runat="server"></asp:TextBox>
+                           <asp:TextBox ClientIDMode="static" ID="txtCVC" CssClass="form-control rhino-expiration" runat="server" placeHolder="XXX"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
-                      <asp:LinkButton ID="btnCheckout" CssClass="btn btn-warning btn-block" OnClick="btnCheckout_Click" runat="server">Checkout</asp:LinkButton>
+                      <asp:LinkButton href="#" autopostback="false" ClientIDMode="static" ID="btnCheckout" CssClass="btn btn-warning btn-block" OnClick="btnCheckout_Click" runat="server">Checkout</asp:LinkButton>
                     </div>
                     <% } else {%>
                         <div class="form-group">

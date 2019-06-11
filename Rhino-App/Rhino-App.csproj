@@ -98,6 +98,7 @@
     <Content Include="images\favicon\ms-icon-310x310.png" />
     <Content Include="images\favicon\ms-icon-70x70.png" />
     <Content Include="js\jquery-ui.js" />
+    <Content Include="js\shop-cart-validation.js" />
     <Content Include="login.aspx" />
     <Content Include="manage-products.aspx" />
     <Content Include="pg_account.aspx" />

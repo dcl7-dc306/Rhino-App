@@ -241,5 +241,6 @@
             </div><!-- //container -->
         </footer>
         <!-- ========================= FOOTER END // ========================= -->
+        <script src="js/shop-cart-validation.js"></script>
     </body>
 </html>

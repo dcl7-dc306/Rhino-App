@@ -94,28 +94,29 @@ namespace Rhino_App
             cmd.Parameters.AddWithValue("@status", "Pendent");
             cmd.Parameters.AddWithValue("@total", total);
             conn.Open();
-            int orderid = Convert.ToInt32(cmd.ExecuteScalar());
+        
+           // int orderid = Convert.ToInt32(cmd.ExecuteScalar());
 
-            foreach (DataRow dr in dt.Rows) // search whole table
-            {
-                foreach (var item in cart.GetShopCart())
-                {
-                    if (item.Id_Prod == (int)dr["product_id"])
-                    {
-                        decimal subtotal = (item.Quantity * (decimal)dr["price"]);
+            //foreach (DataRow dr in dt.Rows) // search whole table
+            //{
+            //    foreach (var item in cart.GetShopCart())
+            //    {
+            //        if (item.Id_Prod == (int)dr["product_id"])
+            //        {
+            //            decimal subtotal = (item.Quantity * (decimal)dr["price"]);
 
-                      cmd = new SqlCommand("INSERT INTO  tbl_order_items (order_id,product_id,quantity,total_price) values (" + orderid + "," + item.Id_Prod + "," + item.Quantity + ","+ subtotal +");", conn);
-                      cmd.ExecuteNonQuery();
-                    }
+            //          cmd = new SqlCommand("INSERT INTO  tbl_order_items (order_id,product_id,quantity,total_price) values (" + orderid + "," + item.Id_Prod + "," + item.Quantity + ","+ subtotal +");", conn);
+            //          cmd.ExecuteNonQuery();
+            //        }
 
 
-                }
-            }
+            //    }
+            //}
 
 
             //cmd.ExecuteNonQuery();
             conn.Close();
-            Response.Redirect("shop-products.aspx");
+            //Response.Redirect("shop-products.aspx");
         }
     }
 }
