@@ -74,6 +74,9 @@
         </li>
         <% } else { %>
         <li class="nav-item">
+            <a class="nav-link page-scroll" href="trans-history.aspx"><i class="fas fa-history icon--small"></i> Transaction History</a>
+        </li>
+        <li class="nav-item">
            <div class="rhino-user">
                 <i class="fa fa-user-circle"></i> Hello, <asp:Label ID="lblUser" runat="server" Text=""></asp:Label>
            </div>

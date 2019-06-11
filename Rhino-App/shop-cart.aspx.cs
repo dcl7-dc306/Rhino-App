@@ -19,6 +19,11 @@ namespace Rhino_App
         String connStr = WebConfigurationManager.ConnectionStrings["Rhino_DB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] != null)
+            {
+                lblUser.Text = Session["user"].ToString();
+            }
+
             Cart initcart = Cart.GetShoppingCart();
             var id = "";
             var cart = (Cart)Session["cart"];

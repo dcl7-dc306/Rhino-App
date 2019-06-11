@@ -21,8 +21,10 @@ namespace Rhino_App
             if (Session["user"] != null) // user logged in
             {
                 lblUser.Text = Session["user"].ToString();
+
                 if (Session["admin"].ToString() != "1") // checks if not administrator
                 {
+                    lblUser1.Text = Session["user"].ToString();
                     AdminPanel.Visible = false;
                     Orders_tb.Visible = false;
                     CLientOrders.Visible = true;

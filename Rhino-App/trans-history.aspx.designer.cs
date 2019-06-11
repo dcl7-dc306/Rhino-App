@@ -31,6 +31,24 @@ namespace Rhino_App {
         protected global::System.Web.UI.WebControls.Button btnLogout;
         
         /// <summary>
+        /// lblUser1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUser1;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
         /// AdminPanel control.
         /// </summary>
         /// <remarks>

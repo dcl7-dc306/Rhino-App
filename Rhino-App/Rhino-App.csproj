@@ -100,7 +100,6 @@
     <Content Include="js\jquery-ui.js" />
     <Content Include="login.aspx" />
     <Content Include="manage-products.aspx" />
-    <Content Include="pg_account.aspx" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\custom.css" />
     <Content Include="css\responsive.css" />
@@ -177,7 +176,6 @@
     <Content Include="js\bootstrap.bundle.min.js" />
     <Content Include="js\jquery-2.0.0.min.js" />
     <Content Include="js\script.js" />
-    <Content Include="pg_orders.aspx" />
     <Content Include="plugins\fancybox\fancybox.min.css" />
     <Content Include="plugins\fancybox\fancybox.min.js" />
     <Content Include="plugins\fancybox\index.html" />
@@ -217,7 +215,6 @@
     <Content Include="plugins\slickslider\slick.css" />
     <Content Include="plugins\slickslider\slick.js" />
     <Content Include="plugins\slickslider\slick.min.js" />
-    <Content Include="pg_single.aspx" />
     <Content Include="register.aspx" />
     <Content Include="email-templates\successRegister.html" />
     <Content Include="shop-cart.aspx" />
@@ -264,13 +261,6 @@
     <Compile Include="manage-products.aspx.designer.cs">
       <DependentUpon>manage-products.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pg_account.aspx.cs">
-      <DependentUpon>pg_account.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pg_account.aspx.designer.cs">
-      <DependentUpon>pg_account.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -287,13 +277,6 @@
     </Compile>
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
-    </Compile>
-    <Compile Include="pg_orders.aspx.cs">
-      <DependentUpon>pg_orders.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pg_orders.aspx.designer.cs">
-      <DependentUpon>pg_orders.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="old-pages\old-Main.Master.cs">
@@ -330,13 +313,6 @@
     </Compile>
     <Compile Include="old-pages\old-account.aspx.designer.cs">
       <DependentUpon>old-account.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pg_single.aspx.cs">
-      <DependentUpon>pg_single.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pg_single.aspx.designer.cs">
-      <DependentUpon>pg_single.aspx</DependentUpon>
     </Compile>
     <Compile Include="register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
