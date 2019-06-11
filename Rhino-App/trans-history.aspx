@@ -151,7 +151,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>TOTAL:</td>
-                                <td>NZ$<%=SumTotal%></td>
+                                <td>NZ$<%=String.Format("{0:n2}",SumTotal)%></td>
                                 <td></td>
                             </tr>
                         </tfoot>
@@ -187,7 +187,7 @@
                                             <p><%#Eval("quantity") %></p>
                                         </td>
                                         <td>
-                                            <p>NZ$<%#(Convert.ToDecimal(Eval("total_price"))/Convert.ToInt64(Eval("quantity"))) %></p>
+                                            <p>NZ$<%#String.Format("{0:n2}",(Convert.ToDecimal(Eval("total_price"))/Convert.ToInt64(Eval("quantity")))) %></p>
                                         </td>
                                         <td>
                                             <p>NZ$<%#String.Format("{0:n2}",Eval("total_price")) %></p>
@@ -202,7 +202,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>TOTAL:</td>
-                                <td>NZ$<%=SumTotal%></td>
+                                <td>NZ$<%=String.Format("{0:n2}",SumTotal)%></td>
                             </tr>
                         </tfoot>
                     </table>
@@ -277,7 +277,7 @@
                                     <p><%#Eval("quantity") %></p>
                                 </td>
                                 <td>
-                                    <p>NZ$<%#(Convert.ToDecimal(Eval("total_price"))/Convert.ToInt64(Eval("quantity"))) %></p>
+                                    <p>NZ$<%#String.Format("{0:n2}",(Convert.ToDecimal(Eval("total_price"))/Convert.ToInt64(Eval("quantity")))) %></p>
                                 </td>
                                 <td>
                                     <p>NZ$<%#String.Format("{0:n2}",Eval("total_price")) %></p>
@@ -292,7 +292,7 @@
                         <td></td>
                         <td></td>
                         <td>TOTAL:</td>
-                        <td>NZ$<%=SumTotal%></td>
+                        <td>NZ$<%=String.Format("{0:n2}",SumTotal)%></td>
                     </tr>
                 </tfoot>
             </table>
