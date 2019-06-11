@@ -114,14 +114,6 @@
                 <!-- col.// -->
                 <aside class="col-sm-3">
                     <p class="alert alert-success">You pay using your debit card, credit cards with unionpay and american express.</p>
-                   <!-- <dl class="dlist-align">
-                        <dt>Total price: </dt>
-                        <dd class="text-right">USD 568</dd>
-                    </dl>
-                    <dl class="dlist-align">
-                        <dt>Discount:</dt>
-                        <dd class="text-right">USD 658</dd>
-                    </dl>--><!-- discuss if we going to use it now -->
                     <dl class="dlist-align h4">
                         <dt>Total:</dt>
                         <dd class="text-right"><strong>USD <%=String.Format("{0:n2}",total) %></strong></dd>

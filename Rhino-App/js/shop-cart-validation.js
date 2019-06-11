@@ -31,13 +31,13 @@ function validate() {
         fcvc = validateCVC(htmlElements.inputCVC.value);    
 
         if (!fcardNumber && !fdate && !fcvc) {
-            alert("Your purchase has failed");
+            alert("Checkout: Failed Transaction. Something is wrong with your card.");
         } else {
-            alert("Your purchase has been accepted");
+            alert("Checkout: Successful Transaction. Thank you!");
         }
 
     } else {
-        alert("No empty fields are allowed");
+        alert("Checkout: Please enter your credit card details.");
         htmlElements.inputCreditCard.style.boxShadow = "0 0 0 2px red";
         htmlElements.inputExpiration.style.boxShadow = "0 0 0 2px red";
         htmlElements.inputCVC.style.boxShadow = "0 0 0 2px red";
@@ -53,7 +53,7 @@ function validateCardNumber(num) {
         return false;
     } else {
         htmlElements.inputCreditCard.style.boxShadow = "0 0 0 2px red";
-        alert("write a valid credit card")
+        alert("Checkout: Please input a valid credit card number.")
         return false;
     }
 }
@@ -70,14 +70,14 @@ function validateDate(date) {
 
         if (expirationDate < today) {
             htmlElements.inputExpiration.style.boxShadow = "0 0 0 2px red";
-            alert("write a valid date");
+            alert("Checkout: Please input valid expiration date.");
             return false;
         } else {
             htmlElements.inputExpiration.style.boxShadow = "0 0 0 2px green";
             return false;
         }
     } else {
-        alert("write a valid date");
+        alert("Checkout: Please input valid expiration date.");
         htmlElements.inputExpiration.style.boxShadow = "0 0 0 2px red";
         return false;
     }
@@ -91,7 +91,7 @@ function validateCVC(cvc) {
         htmlElements.inputCVC.style.boxShadow = "0 0 0 2px green";
         return true;
     } else {
-        alert("write a valid CVC number");
+        alert("Checkout: Please input CVC.");
         htmlElements.inputCVC.style.boxShadow = "0 0 0 2px red";
         return false;
     }
