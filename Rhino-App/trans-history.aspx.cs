@@ -38,9 +38,12 @@ namespace Rhino_App
 
                     RepeaterClientOrders.DataSource = dt;
                     RepeaterClientOrders.DataBind();
-
-                    cmd = new SqlCommand("SELECT SUM(total) FROM tbl_orders WHERE user_id=" + Session["userid"].ToString(), conn);
-                    SumTotal=(decimal) cmd.ExecuteScalar();
+                    if (dt.Rows.Count > 0)
+                    {
+                        cmd = new SqlCommand("SELECT SUM(total) FROM tbl_orders WHERE user_id=" + Session["userid"].ToString(), conn);
+                        SumTotal = (decimal)cmd.ExecuteScalar();
+                    }
+                    conn.Close();
                 }
                 else
                 {
@@ -52,11 +55,15 @@ namespace Rhino_App
                     DataTable dt = new DataTable();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(dt);
-                    RepeaterOrders.DataSource = dt;
-                    RepeaterOrders.DataBind();
-
-                    cmd = new SqlCommand("SELECT SUM(total) FROM tbl_orders INNER JOIN tbl_users ON tbl_orders.user_id = tbl_users.user_id", conn);
-                    SumTotal = (decimal)cmd.ExecuteScalar();
+                    
+                        RepeaterOrders.DataSource = dt;
+                        RepeaterOrders.DataBind();
+                    if (dt.Rows.Count > 0)
+                    {
+                        cmd = new SqlCommand("SELECT SUM(total) FROM tbl_orders INNER JOIN tbl_users ON tbl_orders.user_id = tbl_users.user_id", conn);
+                        SumTotal = (decimal)cmd.ExecuteScalar();
+                    }
+                    conn.Close();
                 }
 
             }
@@ -89,8 +96,12 @@ namespace Rhino_App
             da.Fill(dt);
             RepeaterItens.DataSource = dt;
             RepeaterItens.DataBind();
-            cmd = new SqlCommand("SELECT total FROM tbl_orders WHERE order_id =" + orderid, conn);
-            SumTotal = (decimal)cmd.ExecuteScalar();
+            if (dt.Rows.Count > 0)
+            {
+                cmd = new SqlCommand("SELECT total FROM tbl_orders WHERE order_id =" + orderid, conn);
+                SumTotal = (decimal)cmd.ExecuteScalar();
+            }
+            conn.Close();
         }
         protected void btnDetailsClient_Click(object sender, EventArgs e)
         {
@@ -109,7 +120,10 @@ namespace Rhino_App
             RepeaterItensClient.DataSource = dt;
             RepeaterItensClient.DataBind();
             cmd = new SqlCommand("SELECT total FROM tbl_orders WHERE order_id =" + orderid, conn);
-            SumTotal=(decimal)cmd.ExecuteScalar();
+            if (dt.Rows.Count > 0)
+            {
+                SumTotal = (decimal)cmd.ExecuteScalar();                
+            }
             conn.Close();
         }
         protected void btnBack_Click(object sender, EventArgs e) {
@@ -149,9 +163,12 @@ namespace Rhino_App
             if (txtFrom.Text != "" && txtTo.Text != "")
                 qry += $" AND tbl_orders.create_at BETWEEN '{txtFrom.Text}' AND '{txtTo.Text}' ";
             qry += "COLLATE SQL_Latin1_General_CP1_CI_AS";
-            cmd = new SqlCommand(qry, conn);
-            SumTotal= (decimal)cmd.ExecuteScalar();
 
+            if (dt.Rows.Count > 0)
+            {
+                cmd = new SqlCommand(qry, conn);
+                SumTotal = (decimal)cmd.ExecuteScalar();
+            }
             conn.Close();
         }
     }
