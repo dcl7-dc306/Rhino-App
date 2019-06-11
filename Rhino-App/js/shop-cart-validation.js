@@ -14,7 +14,7 @@ const regex = {
     allCards: /^(?:4[0-9]{12}(?:[0-9]{3})?|(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$/,
 }
 
-htmlElements.buttonCheckout.addEventListener("click", validate);
+//htmlElements.buttonCheckout.addEventListener("click", validate);
 
 
 
@@ -30,10 +30,11 @@ function validate() {
         // validates CVC
         fcvc = validateCVC(htmlElements.inputCVC.value);    
 
-        if (!fcardNumber && !fdate && !fcvc) {
-            alert("Checkout: Failed Transaction. Something is wrong with your card.");
+        if (fcardNumber && fdate && fcvc) {
+            alert("Checkout: Successful Transaction. Thank you!");           
         } else {
-            alert("Checkout: Successful Transaction. Thank you!");
+            alert("Checkout: Failed Transaction. Something is wrong with your card.");
+            return false;         
         }
 
     } else {
@@ -41,6 +42,7 @@ function validate() {
         htmlElements.inputCreditCard.style.boxShadow = "0 0 0 2px red";
         htmlElements.inputExpiration.style.boxShadow = "0 0 0 2px red";
         htmlElements.inputCVC.style.boxShadow = "0 0 0 2px red";
+        return false;
     }
 }
 
@@ -50,7 +52,7 @@ function validateCardNumber(num) {
 
     if (regex.visaCard.test(number) || regex.masterCard.test(number)) {
         htmlElements.inputCreditCard.style.boxShadow = "0 0 0 2px green";
-        return false;
+        return true;
     } else {
         htmlElements.inputCreditCard.style.boxShadow = "0 0 0 2px red";
         alert("Checkout: Please input a valid credit card number.")
@@ -74,7 +76,7 @@ function validateDate(date) {
             return false;
         } else {
             htmlElements.inputExpiration.style.boxShadow = "0 0 0 2px green";
-            return false;
+            return true;
         }
     } else {
         alert("Checkout: Please input valid expiration date.");

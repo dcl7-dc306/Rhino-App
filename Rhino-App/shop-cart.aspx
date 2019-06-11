@@ -136,7 +136,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                      <asp:LinkButton href="#" autopostback="false" ClientIDMode="static" ID="btnCheckout" CssClass="btn btn-warning btn-block" OnClick="btnCheckout_Click" runat="server">Checkout</asp:LinkButton>
+                      <asp:LinkButton ClientIDMode="static" ID="btnCheckout" CssClass="btn btn-warning btn-block" OnClick="btnCheckout_Click" OnClientClick="return validate();" runat="server">Checkout</asp:LinkButton>
                     </div>
                     <% } else {%>
                         <div class="form-group">
