@@ -131,5 +131,11 @@ namespace Rhino_App
             }
 
         }
+
+        protected void btnProceedLogin_Click(object sender, EventArgs e)
+        {
+            Session["ProceedLogin"] = "1";
+            Response.Redirect("login.aspx");
+        }
     }
 }

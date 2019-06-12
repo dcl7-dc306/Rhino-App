@@ -23,11 +23,26 @@ namespace Rhino_App
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user"] != null) // user logged in
-                if (Session["admin"].ToString() == "1") // checks if administrator
+            if (Session["user"] != null){ // user logged in
+                if (Session["admin"].ToString() == "1")
+                { // checks if administrator
                     Response.Redirect("manage-products.aspx"); // redirect to product management
-                else // if not, assume its customer
-                    Response.Redirect("shop-products.aspx"); // redirect to product catalogue
+                }
+                else
+                { // if not, assume its customer
+                    if (Session["ProceedLogin"].ToString() == "1") // if user clicked proceed to checkout
+                    {
+                        Response.Redirect("shop-cart.aspx"); // redirect to cart
+                        Session["ProceedLogin"] = null; // clear up proceedlogin selection
+                    }
+                    else
+                    {
+                       Response.Redirect("shop-products.aspx"); // redirect to product catalogue
+                    }
+                
+                }
+            }
+                
             Cart cart = Cart.GetShoppingCart();
         }
 
@@ -82,9 +97,16 @@ namespace Rhino_App
                         Session["admin"] = admin;
                         Session["userid"] = userid;
                         //creating cart
-
-                        // Redirect to Product Catalogue
-                        Response.Redirect("shop-products.aspx");
+                        if (Session["ProceedLogin"].ToString() == "1") // if user clicked proceed to checkout
+                        {
+                            Response.Redirect("shop-cart.aspx"); // redirect to cart
+                            Session["ProceedLogin"] = null; // clear up proceedlogin selection
+                        }
+                        else
+                        {
+                            Response.Redirect("shop-products.aspx"); // redirect to product catalogue
+                        }
+                        
                     }
 
                 }

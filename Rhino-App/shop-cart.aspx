@@ -140,7 +140,7 @@
                     </div>
                     <% } else {%>
                         <div class="form-group">
-                          <a href="login.aspx" class="btn btn-block btn-warning"><i class="fa fa-user"></i> &nbsp; Login to Proceed Checkout</a>
+                          <asp:Button ID="btnProceedLogin" CssClass="btn btn-block btn-warning" runat="server" Text="Login to Proceed Checkout" OnClick="btnProceedLogin_Click" />
                         </div>
                     <% }%>
 
