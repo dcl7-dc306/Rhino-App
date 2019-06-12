@@ -147,7 +147,7 @@ namespace Rhino_App
             conn = new SqlConnection(connStr);
             conn.Open();
             // search anything by product name
-            string qry = $"SELECT tbl_orders.*,tbl_users.username FROM tbl_orders INNER JOIN tbl_users ON tbl_orders.user_id = tbl_users.user_id LEFT JOIN tbl_order_items ON tbl_orders.order_id = tbl_order_items.order_id LEFT JOIN tbl_products ON tbl_order_items.product_id = tbl_products.product_id WHERE tbl_orders.order_id LIKE '%{txtOrderId.Text}%' AND tbl_orders.user_id LIKE '%{txtCustomerId.Text}%' AND tbl_orders.total LIKE '%{txtPrice.Text}%' AND tbl_users.username LIKE '%{txtCustomerName.Text}%' AND tbl_products.name LIKE '%{txtProdName.Text}%'";
+            string qry = $"SELECT DISTINCT tbl_orders.*,tbl_users.username FROM tbl_orders INNER JOIN tbl_users ON tbl_orders.user_id = tbl_users.user_id LEFT JOIN tbl_order_items ON tbl_orders.order_id = tbl_order_items.order_id LEFT JOIN tbl_products ON tbl_order_items.product_id = tbl_products.product_id WHERE tbl_orders.order_id LIKE '%{txtOrderId.Text}%' AND tbl_orders.user_id LIKE '%{txtCustomerId.Text}%' AND tbl_orders.total LIKE '%{txtPrice.Text}%' AND tbl_users.username LIKE '%{txtCustomerName.Text}%' AND tbl_products.name LIKE '%{txtProdName.Text}%'";
             if(txtFrom.Text!="" && txtTo.Text !="")
             qry += $" AND tbl_orders.create_at BETWEEN '{txtFrom.Text}' AND '{txtTo.Text}' ";
 

@@ -31,7 +31,7 @@ function validate() {
         fcvc = validateCVC(htmlElements.inputCVC.value);    
 
         if (fcardNumber && fdate && fcvc) {
-            alert("Checkout: Successful Transaction. Thank you!");           
+            alert("Checkout: Successful Transaction. Thank you!");                
         } else {
             alert("Checkout: Failed Transaction. Something is wrong with your card.");
             return false;         
