@@ -90,15 +90,15 @@ namespace Rhino_App
 
                     }
                     else // customer = any other number
-                    {
+                    { 
                         // Save session
                         Session["first"] = firstname;
                         Session["user"] = username;
                         Session["admin"] = admin;
                         Session["userid"] = userid;
                         //creating cart
-                        if (Session["ProceedLogin"].ToString() == "1") // if user clicked proceed to checkout
-                        {
+                        if (Session["ProceedLogin"] != null)
+                        { 
                             Response.Redirect("shop-cart.aspx"); // redirect to cart
                             Session["ProceedLogin"] = null; // clear up proceedlogin selection
                         }
