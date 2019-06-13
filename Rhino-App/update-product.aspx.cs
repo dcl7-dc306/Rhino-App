@@ -106,6 +106,7 @@ namespace Rhino_App
             {
                 if (flProdImage.HasFile) // if user choosed a file
                 {
+
                     string path = Server.MapPath("images/uploaded-products/");
                     string ext = Path.GetExtension(flProdImage.FileName);
                     if (ext == ".jpg" || ext == ".png" || ext == ".jpeg")
@@ -114,6 +115,11 @@ namespace Rhino_App
                         flProdImage.SaveAs(path + flProdImage.FileName);
                         string imgPath = "images/uploaded-products/" + flProdImage.FileName;
                         cmd.Parameters.AddWithValue("@image", imgPath);
+                    }
+                    else
+                    {
+                        // validation for image extension
+                        Response.Write("<script>alert('Failed: Only .jpg and .png files are allowed')</script>");
                     }
                 }
                 else
