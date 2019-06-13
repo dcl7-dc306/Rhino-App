@@ -5,7 +5,7 @@
 <html>
     <%--HEAD--%>
     <head runat="server">
-        <title></title>
+        <title>Rhino App - Online Store</title>
         <%--<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">--%>
 
         <%--Icons--%>
