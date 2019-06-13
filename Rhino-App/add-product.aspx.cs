@@ -66,8 +66,8 @@ namespace Rhino_App
                 }
                 else
                 {
-                    lblStatusImage.Text = "<font color='red'>Only .jpg and .png files are allowed</font>";
-                    Response.Write("<script>alert('Failed: Only .jpg and .png files are allowed to upload')</script>");
+                    lblStatusImage.Text = "<font color='red'>Only .jpg and .png files</font>";
+                    Response.Write("<script>alert('Failed: Only .jpg and .png files are allowed')</script>");
                 }
             }
             else
