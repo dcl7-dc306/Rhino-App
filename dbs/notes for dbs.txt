@@ -1,0 +1,7 @@
+tbl_order_items ->
+CONSTRAINT [fk_product]...... "ON DELETE CASCADE"
+
+add on delete cascade - fix for deleting a product from product items
+
+
+tbl_order_items, tbl_orders -> set "identity specification" = true
