@@ -52,7 +52,7 @@ namespace Rhino_App
 
                     if( txtProdName.Text == "" || txtProdDesc.Text == "" || txtPrice.Text == "")
                     {
-                        Response.Write("<script>alert('Failed: All fields must be filled up.')</script>");
+                        Response.Write("<script>alert('Failed: All fields are cannot be blank.')</script>");
                     }
                     else
                     {
@@ -66,13 +66,14 @@ namespace Rhino_App
                 }
                 else
                 {
-                    lblStatusImage.Text = "Only .jpg and .png files are allowed";
+                    lblStatusImage.Text = "<font color='red'>Only .jpg and .png files are allowed</font>";
                     Response.Write("<script>alert('Failed: Only .jpg and .png files are allowed to upload')</script>");
                 }
             }
             else
             {
-                lblStatusImage.Text = "Please select an Image file";
+                lblStatusImage.Text = "<font color='red'>Please select an Image file</font>";
+                Response.Write("<script>alert('Failed: Please select an Image file')</script>");
             }
         }
 

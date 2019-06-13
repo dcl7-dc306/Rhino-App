@@ -62,7 +62,7 @@
             </div>
             <div class="form-group">
                 <asp:Label ID="lblProdPrice" runat="server" Text="Price" AssociatedControlID="txtPrice"></asp:Label>
-                <asp:TextBox ID="txtPrice" CssClass="form-control" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtPrice" CssClass="form-control" runat="server"  min="0.01" step="0.01" max="2500" TextMode="Number"></asp:TextBox>
             </div>
             <div class="form-group">
                 <asp:Label ID="lblImage" runat="server" Text="Upload Image" AssociatedControlID="flProdImage"></asp:Label>
