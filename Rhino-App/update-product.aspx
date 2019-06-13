@@ -96,7 +96,7 @@
                                     </div>
                                     <div class="form-group">
                                         <asp:Label ID="lblProdPrice" runat="server" Text="Price(NZD)" AssociatedControlID="txtPrice"></asp:Label>
-                                        <asp:TextBox ID="txtPrice" CssClass="form-control" runat="server" TextMode="Number"></asp:TextBox>
+                                        <asp:TextBox ID="txtPrice" CssClass="form-control" runat="server" min="0.01" step="0.01" max="2500" TextMode="Number"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
                                         <asp:Label ID="lblCurrent" runat="server" Text="Current Image:"></asp:Label><br/>

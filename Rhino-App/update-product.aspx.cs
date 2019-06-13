@@ -56,7 +56,7 @@ namespace Rhino_App
                                 txtProdName.Text = reader["name"].ToString();
                                 txtProdDesc.Text = reader["description"].ToString();
                                 lblStatusImage.Text = reader["image"].ToString();
-                                txtPrice.Text = reader["price"].ToString();
+                                txtPrice.Text = String.Format("{0:n2}", reader["price"]);
                                 lblProdId.Text = product.ToString();
                             }
                             conn.Close();
@@ -94,44 +94,55 @@ namespace Rhino_App
             cmd.Parameters.AddWithValue("@description", txtProdDesc.Text);
             cmd.Parameters.AddWithValue("@price", txtPrice.Text);
             cmd.Parameters.AddWithValue("@product", product);
-            if (flProdImage.HasFile) // if user choosed a file
+            if(txtPrice.Text == "0")
             {
-                string path = Server.MapPath("images/uploaded-products/");
-                string ext = Path.GetExtension(flProdImage.FileName);
-                if (ext == ".jpg" || ext == ".png" || ext == ".jpeg")
-                {
-                    // Reupload Image
-                    flProdImage.SaveAs(path + flProdImage.FileName);
-                    string imgPath = "images/uploaded-products/" + flProdImage.FileName;
-                    cmd.Parameters.AddWithValue("@image", imgPath);
-                }
+                Response.Write("<script>alert('Failed: Price cannot be zero. ');</script>");
+            }
+            else if (txtProdName.Text == "" || txtProdName.Text == "" || txtPrice.Text == "")
+            {
+                Response.Write("<script>alert('Failed: All fields are cannot be empty. ');</script>");
             }
             else
             {
-                // if not, just use the current image
-                cmd.Parameters.AddWithValue("@image", lblStatusImage.Text);
-            }
-            
-
-            try
-            {
-                conn.Open();
-                if (cmd.ExecuteNonQuery() == 1) // ExecuteNonQuery() = returns no. of rows affected from db
+                if (flProdImage.HasFile) // if user choosed a file
                 {
-                    AlertAndRedirect("Success: Product Update Complete", product);
+                    string path = Server.MapPath("images/uploaded-products/");
+                    string ext = Path.GetExtension(flProdImage.FileName);
+                    if (ext == ".jpg" || ext == ".png" || ext == ".jpeg")
+                    {
+                        // Reupload Image
+                        flProdImage.SaveAs(path + flProdImage.FileName);
+                        string imgPath = "images/uploaded-products/" + flProdImage.FileName;
+                        cmd.Parameters.AddWithValue("@image", imgPath);
+                    }
                 }
                 else
                 {
-                    // something went wrong with db / query
-                    Response.Write("<script>alert('Failed: Sorry, Something went wrong. ');</script>");
+                    // if not, just use the current image
+                    cmd.Parameters.AddWithValue("@image", lblStatusImage.Text);
                 }
 
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                //lblStatus.Text = ex.Message;
-                Response.Write("<script>alert('" + ex.ToString() + "');</script>");
+
+                try
+                {
+                    conn.Open();
+                    if (cmd.ExecuteNonQuery() == 1) // ExecuteNonQuery() = returns no. of rows affected from db
+                    {
+                        AlertAndRedirect("Success: Product Update Complete", product);
+                    }
+                    else
+                    {
+                        // something went wrong with db / query
+                        Response.Write("<script>alert('Failed: Sorry, Something went wrong. ');</script>");
+                    }
+
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    //lblStatus.Text = ex.Message;
+                    Response.Write("<script>alert('" + ex.ToString() + "');</script>");
+                }
             }
         }
 
