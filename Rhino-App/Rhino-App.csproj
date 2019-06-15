@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="add-product.aspx" />
+    <Content Include="change-password.aspx" />
     <Content Include="css\jquery-ui.css" />
     <Content Include="email-templates\forgot-pass.html" />
     <Content Include="forgot-password.aspx" />
@@ -241,6 +242,13 @@
     </Compile>
     <Compile Include="App_Code\Cart.cs" />
     <Compile Include="App_Code\CartItem.cs" />
+    <Compile Include="change-password.aspx.cs">
+      <DependentUpon>change-password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="change-password.aspx.designer.cs">
+      <DependentUpon>change-password.aspx</DependentUpon>
+    </Compile>
     <Compile Include="forgot-password.aspx.cs">
       <DependentUpon>forgot-password.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

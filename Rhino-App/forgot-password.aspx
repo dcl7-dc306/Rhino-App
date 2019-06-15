@@ -12,7 +12,7 @@
             <h1 class="u-margin-bottom-medium">Forgot Password</h1>
             <div class="form-group">
                 <asp:Label ID="lblEmail" runat="server" Text="Enter your e-mail address:" AssociatedControlID="txtEmail"></asp:Label>
-                <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" TextMode="Email"></asp:TextBox>
             </div>
             <div class="form-group">
                 <asp:Button ID="btnSendPassword" CssClass="btn btn-block btn-warning" runat="server" Text="Send Password" OnClick="btnSendPassword_Click" />

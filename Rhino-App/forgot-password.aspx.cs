@@ -21,6 +21,7 @@ namespace Rhino_App
         String connStr = WebConfigurationManager.ConnectionStrings["Rhino_DB"].ConnectionString;
         string firstname;
         string pass;
+        string userid;
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -58,6 +59,7 @@ namespace Rhino_App
                         // reads specific columns and store it to variable
                         firstname = reader["firstname"].ToString();
                         pass = reader["password"].ToString();
+                        userid = reader["user_id"].ToString();
                         SendEmail(txtEmail.Text);
                         Response.Write("<script>alert('Success : We sent your password to your email');</script>");
                     }
@@ -96,7 +98,7 @@ namespace Rhino_App
                 mail.From = new MailAddress(emailFrom, appFrom);
 
                 // Subject, Body, Priority
-                mail.Subject = "Rhino Store - Password Recovery";
+                mail.Subject = "Rhino Store - Password Recovery / Request for Change Password";
                 mail.IsBodyHtml = true;
                 mail.Body = CreateEmailContent();
                 mail.Priority = MailPriority.Normal;
@@ -123,6 +125,8 @@ namespace Rhino_App
             body = body.Replace("{fname}", firstname); // Replace Parameter "{fname}" string in HTML
 
             body = body.Replace("{pass}", pass); // Replace Parameter "{pass}" string in HTML
+
+            body = body.Replace("{userid}", userid); // Replace Parameter "{userid}" string in HTML
 
             return body; // return whole content
         }
