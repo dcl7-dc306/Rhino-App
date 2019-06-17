@@ -41,7 +41,7 @@ namespace Rhino_App
             cmd.Parameters.AddWithValue("@gender", drpGender.Text);
             cmd.Parameters.AddWithValue("@birthday", calBirth.Text);
             cmd.Parameters.AddWithValue("@admin", "0");
-            cmd.Parameters.AddWithValue("@created", DateTime.Now.ToString());
+            cmd.Parameters.AddWithValue("@created", DateTime.Now.ToString("MM/dd/yyyy"));
 
 
             SqlCommand checkercmd = new SqlCommand("SELECT * FROM tbl_users WHERE username = @Username OR email = @Email", conn); ;
@@ -86,7 +86,7 @@ namespace Rhino_App
                         }
                         else
                         {
-
+                          
                         }
                     }
                     catch (Exception exception)
